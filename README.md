@@ -248,7 +248,7 @@ Type-in the options in 1-5 or q to exit:
 > 4. Reset a VM - 重置一个虚拟机
 > 5. Find a VM - 在列表中搜寻一个虚拟机
 >
->    q. Exit the menu - 退出至一级菜单
+> q. Exit the menu - 退出至一级菜单
 
 ##### I. 列举虚拟机
 
