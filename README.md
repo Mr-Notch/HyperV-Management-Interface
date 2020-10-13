@@ -2,11 +2,12 @@
 
 ![HyperVistor Link (3)](https://i.loli.net/2020/10/08/bCyt5SV6maIlP9Q.png)
 
-English
+
+
 
 > 这是一个基于 Python38 的 Hyper-V 虚拟机管理工具
 
-HyperVisor Link（简称 HVL）是一个由底层 PowerShell 脚本控制 Hyper-V 服务并不需要安装其他复杂功能的 Python 程序。
+HyperVisor Link（简称 HVL）是一个由底层 PowerShell 脚本控制 Hyper-V 服务，并不需要安装其他复杂功能的 Python 程序。
 
 HVL 提供一套完整的 API 方便与 WHMCS 等虚拟机部署服务进行对接。
 
@@ -82,7 +83,7 @@ Type-in the option of your choise:
 
 ------
 
-#### Settings menu - 设置二级菜单
+#### Settings menu - 常规设置二级菜单
 
 在命令行文本框输入 `2`，跳转至该二级菜单：
 
@@ -214,3 +215,148 @@ By the way, you can also modify it in the "./Config/inf_config.txt".
 **此时，Daemon 的基本设置已经填写完毕。如无需前端，此时已经可以直接通过 Daemon 操作 Hyper-V 了**
 
 如需配置前端（Web面板等），请 **移步至此**
+
+------
+
+#### Web menu - 网页设置二级菜单
+
+阿巴阿巴阿巴
+
+------
+
+#### Control menu - 控制面板二级菜单
+
+在命令行内输入`4`，跳转至该二级菜单：
+
+```
+*** Welcome to use HyperVisor Link Control Menu ***
+
+--------------------------
+1. List all VMs
+2. Start a VM
+3. Stop a VM
+4. Reset a VM
+5. Find a VM
+q. Exit the menu
+--------------------------
+Type-in the options in 1-5 or q to exit: 
+```
+
+> 1. List all VMs - 列举出所有存在的虚拟机
+> 2. Start a VM - 开启一个虚拟机
+> 3. Stop a VM - 关闭一个虚拟机
+> 4. Reset a VM - 重置一个虚拟机
+> 5. Find a VM - 在列表中搜寻一个虚拟机
+>
+>    q. Exit the menu - 退出至一级菜单
+
+##### I. 列举虚拟机
+
+在输入框输入`1`，此时应该会弹出类似这样的文本：
+
+```
+
+Name State   CPUUsage(%) MemoryAssigned(M) Uptime           Status Version
+---- -----   ----------- ----------------- ------           ------ -------
+TEST Running 0           2048              00:29:06.6460000 正常运行   9.0    
+ABCD Running 2           1024              00:29:06.6480000 正常运行   9.0  
+
+
+
+ *** Execution finished *** 
+
+Type-in the options in 1-5 or q to exit: 
+```
+
+此时，在前几行的小表格内即是在计算机中 Hyper-V 能搜索到的全部的虚拟机。
+
+##### II. 开启一个虚拟机
+
+在输入框内输入`2`，此时仍需要输入一个字符串，字符串内容为要执行命令的虚拟机名称
+
+例如，我需要打开`TEST`虚拟机，此时应在第二个输入框输入`TEST`
+
+```
+Type-in the options in 1-5 or q to exit: 2
+Type-in the value of the vmname: TEST
+```
+
+然后按下回车键，等待其执行完毕：
+
+```
+Now loading thread process, Please wait...
+
+警告: 虚拟机已处于指定的状态。
+
+
+ *** Execution finished *** 
+
+Type-in the options in 1-5 or q to exit: 
+```
+
+若中央弹出`警告: 虚拟机已处于指定的状态。`时，证明虚拟机处于开启状态，无法再次执行开启指令。
+
+若中央没有弹出警告，仅提示`*** Execution finished ***`，证明指令执行成功，虚拟机应该被开启。
+
+##### III. 关闭一个虚拟机
+
+在输入框内输入`3`，在第二个输入框输入要执行关机操作虚拟机的名称。
+
+此时提示第三个输入框，该输入框需要输入`Y 或 N`来确认或否认是否需要强制关闭。
+
+如果选择`Y`，即 **强制关闭虚拟机，相当于直接拔掉虚拟机的电源。**
+
+否则将安全关闭虚拟机（向系统发送关机指令，让系统自行处理关机操作）
+
+```
+Type-in the options in 1-5 or q to exit: 3
+Type-in the value of the vmname: TEST
+Should I execute force shutdown? (Y/N): N
+```
+
+按下回车后，应当提示类似以下内容：
+
+```
+Now loading thread process, Please wait...
+
+
+
+ *** Execution finished *** 
+
+Type-in the options in 1-5 or q to exit: 
+```
+
+若提示``警告: 虚拟机已处于指定的状态。``，证明虚拟机已经处于关闭状态，无法再执行关机操作
+
+否则虚拟机应当被执行关机指令。
+
+##### IV. 重置一个虚拟机
+
+在 Hyper-V 中，重置与重启效果相同。相当于给虚拟机按下了 Reset 键。
+
+在输入框输入`4`，在第二个输入框输入要执行重置操作的虚拟机名称
+
+按下回车后，虚拟机应当被重置。如果弹出报错，虚拟机则处于关闭状态或其他状态（例如正在导出/生成还原点）
+
+##### IIV. 搜寻虚拟机
+
+虚拟机太多怎么办？在文本框输入`5`，进入虚拟机检索功能。
+
+此时弹出第二个输入框，输入要检索的虚拟机名称或其部分字母，按下回车，系统将自动写出符合要求的虚拟机。
+
+```
+Type-in the options in 1-5 or q to exit: 5
+Type-in the value of the vmname: TEST
+
+Name State CPUUsage(%) MemoryAssigned(M) Uptime   Status Version
+---- ----- ----------- ----------------- ------   ------ -------
+TEST Off   0           0                 00:00:00 正常运行   9.0    
+
+
+
+
+ *** Execution finished *** 
+
+Type-in the options in 1-5 or q to exit: 
+```
+
