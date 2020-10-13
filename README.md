@@ -2,6 +2,7 @@
 
 ![HyperVistor Link (3)](https://i.loli.net/2020/10/08/bCyt5SV6maIlP9Q.png)
 
+[点我](https://github.com/Mr-Notch/HyperVisorLink )
 
 
 
@@ -9,7 +10,7 @@
 
 HyperVisor Link（简称 HVL）是一个由底层 PowerShell 脚本控制 Hyper-V 服务，并不需要安装其他复杂功能的 Python 程序。
 
-HVL 提供一套完整的 API ，方便与 WHMCS 等虚拟机部署服务进行对接。
+HVL 提供一套完整的 API 方便与 WHMCS 等虚拟机部署服务进行对接。
 
 该程序由 HydrogenCloud 编写
 
@@ -48,16 +49,30 @@ Hydrogen Cloud 在以下环境中已经将 HVL 用于实际生产环境：
 
 ## 使用方法
 
-**本版块的内容较多，请确保自己有充足的时间仔细阅读**
-**建议配合本说明并尝试实践操作 HVL Daemon**
+**本版块的内容较多、较复杂，请确保自己有充足的时间仔细阅读该板块**
+
+**建议使用实践操作法练习使用 HVL Daemon**
+
+目录：
+
+- [第一次使用需配置的常规项目（必看）](https://github.com/Mr-Notch/HyperVisorLink#%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8%E9%9C%80%E9%85%8D%E7%BD%AE%E7%9A%84%E5%B8%B8%E8%A7%84%E9%A1%B9%E7%9B%AE%E5%BF%85%E7%9C%8B)
+  - 
+
+
+
+
+
+
+
+### 第一次使用需配置的常规项目（必看）
+
+#### 准备工作：
 
 1. 在 Release 中下载最新的 HVL 受控端程序包
 2. 在已经配置好 Python 环境的计算机中释放程序包
 3. 使用**管理员模式的 PowerShell 窗口**前往根目录输入 `python Main-Injector.py` 并等待其加载完成
 
 对于一般环境，其加载过程在 3-5 分钟不等
-
-### 第一次使用需配置的常规项目（必看）
 
 等待其加载完成后，正常情况下会弹出一个命令行菜单：
 
@@ -86,7 +101,7 @@ Type-in the option of your choise:
 
 ------
 
-#### Settings menu - 常规设置二级菜单
+### Settings menu - 常规设置二级菜单
 
 在命令行文本框输入 `2`，跳转至该二级菜单：
 
@@ -111,7 +126,7 @@ Type-in the options in 1-3:
 
 
 
-##### 第一步：MySQL Settings
+#### 第一步：MySQL Settings
 
 在命令行文本框输入 `1`，跳转至该三级菜单：
 
@@ -147,7 +162,7 @@ Type-in the options in 1-3:
 
 
 
-##### 第二步：Port Settings
+#### 第二步：Port Settings
 
 在输入框内输入`2`，跳转至该三级菜单：
 
@@ -175,7 +190,7 @@ Type-in the options in 1-3:
 
 
 
-##### 第三步：API Settings
+#### 第三步：API Settings
 
 键入`3`，进入该三级菜单：
 
@@ -221,13 +236,13 @@ By the way, you can also modify it in the "./Config/inf_config.txt".
 
 ------
 
-#### Web menu - 网页设置二级菜单
+### Web menu - 网页设置二级菜单
 
 阿巴阿巴阿巴
 
 ------
 
-#### Control menu - 控制面板二级菜单
+### Control menu - 控制面板二级菜单
 
 在命令行内输入`4`，跳转至该二级菜单：
 
@@ -251,9 +266,9 @@ Type-in the options in 1-5 or q to exit:
 > 4. Reset a VM - 重置一个虚拟机
 > 5. Find a VM - 在列表中搜寻一个虚拟机
 >
-> q. Exit the menu - 退出至一级菜单
+>    q. Exit the menu - 退出至一级菜单
 
-##### I. 列举虚拟机
+#### I. 列举虚拟机
 
 在输入框输入`1`，此时应该会弹出类似这样的文本：
 
@@ -273,7 +288,7 @@ Type-in the options in 1-5 or q to exit:
 
 此时，在前几行的小表格内即是在计算机中 Hyper-V 能搜索到的全部的虚拟机。
 
-##### II. 开启一个虚拟机
+#### II. 开启一个虚拟机
 
 在输入框内输入`2`，此时仍需要输入一个字符串，字符串内容为要执行命令的虚拟机名称
 
@@ -301,7 +316,7 @@ Type-in the options in 1-5 or q to exit:
 
 若中央没有弹出警告，仅提示`*** Execution finished ***`，证明指令执行成功，虚拟机应该被开启。
 
-##### III. 关闭一个虚拟机
+#### III. 关闭一个虚拟机
 
 在输入框内输入`3`，在第二个输入框输入要执行关机操作虚拟机的名称。
 
@@ -333,7 +348,7 @@ Type-in the options in 1-5 or q to exit:
 
 否则虚拟机应当被执行关机指令。
 
-##### IV. 重置一个虚拟机
+#### IV. 重置一个虚拟机
 
 在 Hyper-V 中，重置与重启效果相同。相当于给虚拟机按下了 Reset 键。
 
@@ -341,7 +356,7 @@ Type-in the options in 1-5 or q to exit:
 
 按下回车后，虚拟机应当被重置。如果弹出报错，虚拟机则处于关闭状态或其他状态（例如正在导出/生成还原点）
 
-##### IIV. 搜寻虚拟机
+#### IIV. 搜寻虚拟机
 
 虚拟机太多怎么办？在文本框输入`5`，进入虚拟机检索功能。
 
