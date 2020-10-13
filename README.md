@@ -56,12 +56,27 @@ Hydrogen Cloud 在以下环境中已经将 HVL 用于实际生产环境：
 目录：
 
 - [第一次使用需配置的常规项目（必看）](https://github.com/Mr-Notch/HyperVisorLink#%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8%E9%9C%80%E9%85%8D%E7%BD%AE%E7%9A%84%E5%B8%B8%E8%A7%84%E9%A1%B9%E7%9B%AE%E5%BF%85%E7%9C%8B)
-  - 
+  - [准备工作](https://github.com/Mr-Notch/HyperVisorLink#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C)
 
+- [常规设置二级菜单](https://github.com/Mr-Notch/HyperVisorLink#settings-menu---%E5%B8%B8%E8%A7%84%E8%AE%BE%E7%BD%AE%E4%BA%8C%E7%BA%A7%E8%8F%9C%E5%8D%95)
 
+  - [数据库设置](https://github.com/Mr-Notch/HyperVisorLink#%E7%AC%AC%E4%B8%80%E6%AD%A5mysql-settings)
 
+  - [端口设置](https://github.com/Mr-Notch/HyperVisorLink#%E7%AC%AC%E4%BA%8C%E6%AD%A5port-settings)
+  - [API 设置](https://github.com/Mr-Notch/HyperVisorLink#%E7%AC%AC%E4%B8%89%E6%AD%A5api-settings)
 
+- [网页设置二级菜单](https://github.com/Mr-Notch/HyperVisorLink#web-menu---%E7%BD%91%E9%A1%B5%E8%AE%BE%E7%BD%AE%E4%BA%8C%E7%BA%A7%E8%8F%9C%E5%8D%95)
 
+  - 阿巴阿巴阿巴
+
+- [控制面板二级菜单](https://github.com/Mr-Notch/HyperVisorLink#control-menu---%E6%8E%A7%E5%88%B6%E9%9D%A2%E6%9D%BF%E4%BA%8C%E7%BA%A7%E8%8F%9C%E5%8D%95)
+
+  - [列举虚拟机](https://github.com/Mr-Notch/HyperVisorLink#i-%E5%88%97%E4%B8%BE%E8%99%9A%E6%8B%9F%E6%9C%BA)
+  - [关闭虚拟机](https://github.com/Mr-Notch/HyperVisorLink#iii-%E5%85%B3%E9%97%AD%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9F%E6%9C%BA)
+  - [重置虚拟机](https://github.com/Mr-Notch/HyperVisorLink#iv-%E9%87%8D%E7%BD%AE%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9F%E6%9C%BA)
+  - [搜寻虚拟机](https://github.com/Mr-Notch/HyperVisorLink#iiv-%E6%90%9C%E5%AF%BB%E8%99%9A%E6%8B%9F%E6%9C%BA)
+
+[TOC]
 
 
 ### 第一次使用需配置的常规项目（必看）
