@@ -9,7 +9,7 @@
 
 HyperVisor Link（简称 HVL）是一个由底层 PowerShell 脚本控制 Hyper-V 服务，并不需要安装其他复杂功能的 Python 程序。
 
-HVL 提供一套完整的 API 方便与 WHMCS 等虚拟机部署服务进行对接。
+HVL 提供一套完整的 API ，方便与 WHMCS 等虚拟机部署服务进行对接。
 
 该程序由 HydrogenCloud 编写
 
@@ -47,6 +47,9 @@ Hydrogen Cloud 在以下环境中已经将 HVL 用于实际生产环境：
 - pymysql
 
 ## 使用方法
+
+**本版块的内容较多，请确保自己有充足的时间仔细阅读**
+**建议配合本说明并尝试实践操作 HVL Daemon**
 
 1. 在 Release 中下载最新的 HVL 受控端程序包
 2. 在已经配置好 Python 环境的计算机中释放程序包
