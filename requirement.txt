@@ -1,0 +1,6 @@
+ruamel.yaml
+requests
+colorlog
+colorama
+chardet
+pymysql
