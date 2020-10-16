@@ -145,7 +145,7 @@ Type-in the options in 1-3:
 
 #### 第一步：MySQL Settings
 
-在命令行文本框输入 `1`，跳转至该三级菜单：
+在命令行文本框输入 </kbd>1</kbd>，跳转至该三级菜单：
 
 ```
 *** MySQL Settings ***
@@ -181,7 +181,7 @@ Type-in the options in 1-3:
 
 #### 第二步：Port Settings
 
-在输入框内输入`2`，跳转至该三级菜单：
+在输入框内输入 </kbd>2</kbd>，跳转至该三级菜单：
 
 ```
 *** Port Settings ***
@@ -261,7 +261,7 @@ By the way, you can also modify it in the "./Config/inf_config.txt".
 
 ### Control menu - 控制面板二级菜单
 
-在命令行内输入`4`，跳转至该二级菜单：
+在命令行内输入 </kbd>4</kbd>，跳转至该二级菜单：
 
 ```
 *** Welcome to use HyperVisor Link Control Menu ***
@@ -308,7 +308,7 @@ Type-in the options in 1-11 or q to exit:
 
 #### I. 列举虚拟机
 
-在输入框输入`1`，此时应该会弹出类似这样的文本：
+在输入框输入 </kbd>1</kbd>，此时应该会弹出类似这样的文本：
 
 ```
 
@@ -328,7 +328,7 @@ Type-in the options in 1-5 or q to exit:
 
 #### II. 开启一个虚拟机
 
-在输入框内输入`2`，此时仍需要输入一个字符串，字符串内容为要执行命令的虚拟机名称
+在输入框内输入 </kbd>2</kbd>，此时仍需要输入一个字符串，字符串内容为要执行命令的虚拟机名称
 
 例如，我需要打开`TEST`虚拟机，此时应在第二个输入框输入`TEST`
 
@@ -356,7 +356,7 @@ Type-in the options in 1-5 or q to exit:
 
 #### III. 关闭一个虚拟机
 
-在输入框内输入`3`，在第二个输入框输入要执行关机操作虚拟机的名称。
+在输入框内输入 </kbd>3</kbd>，在第二个输入框输入要执行关机操作虚拟机的名称。
 
 此时提示第三个输入框，该输入框需要输入`Y 或 N`来确认或否认是否需要强制关闭。
 
@@ -390,13 +390,13 @@ Type-in the options in 1-5 or q to exit:
 
 在 Hyper-V 中，重置与重启效果相同。相当于给虚拟机按下了  <kbd>Reset</kbd> 键。
 
-在输入框输入`4`，在第二个输入框输入要执行重置操作的虚拟机名称
+在输入框输入 </kbd>4</kbd>，在第二个输入框输入要执行重置操作的虚拟机名称
 
 按下回车后，虚拟机应当被重置。如果弹出报错，虚拟机则处于关闭状态或其他状态（例如正在导出/生成还原点）
 
 #### V. 搜寻虚拟机
 
-虚拟机太多怎么办？在文本框输入`5`，进入虚拟机检索功能。
+虚拟机太多怎么办？在文本框输入 </kbd>5</kbd>，进入虚拟机检索功能。
 
 此时弹出第二个输入框，输入要检索的虚拟机名称或其部分字母，按下 <kbd>Enter</kbd> 键，系统将自动写出符合要求的虚拟机。
 
@@ -420,7 +420,7 @@ Type-in the options in 1-5 or q to exit:
 
 最重要的功能。若想要通过 HyperVisorLink 新建虚拟机，请务必阅读该板块。
 
-在输入框输入`6`，进入新建虚拟机二级界面
+在输入框输入 </kbd>6</kbd>，进入新建虚拟机二级界面
 
 ```
 *** New-VM Settings & Manage Menu ***
@@ -509,7 +509,7 @@ TEST Off   0           0                 00:00:00 正常运行   9.0
 
 下面将学习如何使用 HyperVisor Link 的导入虚拟机功能批量导入虚拟机
 
-在输入框输入`10`，进入下一级菜单：
+在输入框输入 </kbd>10</kbd>，进入下一级菜单：
 
 ```
 *** Import VM Manage Menu ***
@@ -531,7 +531,7 @@ Type-in the options in 1-3 or q to exit:
 
 该方法适用于已经设计好的模板，需要直接从模板复制虚拟机副本。
 
-输入框输入`1`，进入下级菜单：
+输入框输入 </kbd>1</kbd>，进入下级菜单：
 
 ```
 *** Import and create a copy of the VM ***
