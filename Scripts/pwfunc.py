@@ -152,3 +152,70 @@ def listVM():
             Packs.messages.faildmsg()
             return False
 
+# 枚举网卡
+def showVMSwitch():
+    subprocess.Popen(["powershell.exe", ".\Scripts\pwscript\\showVMSwitch.ps1 "])
+    time.sleep(2)
+    path = 'showVMSwitch-out.txt'
+    with open(path, encoding=check_chardet(path)) as f:
+        data = f.read()
+        print(data)
+    if os.path.exists('showVMSwitch-out.txt'):
+        Packs.messages.finishmsg()
+        os.remove('showVMSwitch-out.txt')
+        time.sleep(1)
+        return True
+    else:
+        time.sleep(3)
+        if os.path.exists('showVMSwitch-out.txt'):
+            Packs.messages.finishmsg()
+            return True
+        else:
+            Packs.messages.faildmsg()
+            return False
+
+def newVM(vmname,ramsize,cpunum,vmswitchname,vmdiskname,vmdisksize,vmloc,isoloc):
+    subprocess.Popen(["powershell.exe", ".\Scripts\pwscript\\newVM.ps1 " + vmname + ' ' + ramsize + ' ' + ' ' + cpunum + ' ' + vmswitchname + ' ' + vmdiskname + ' ' + vmdisksize + ' ' + vmloc + ' ' + isoloc])
+    time.sleep(30)
+    path = 'newVM-out.txt'
+    with open(path, encoding=check_chardet(path)) as f:
+        data = f.read()
+        print(data)
+    if os.path.exists('newVM-out.txt'):
+        Packs.messages.finishmsg()
+        os.remove('newVM-out.txt')
+        time.sleep(1)
+        return True
+    else:
+        time.sleep(3)
+        if os.path.exists('newVM-out.txt'):
+            Packs.messages.finishmsg()
+            return True
+        else:
+            Packs.messages.faildmsg()
+            return False
+
+# newVM('TEST3','1GB','2','TEST','C','10GB','D:\VMachines\Hyper-V','D:\迅雷下载\cn_windows_server_version_1909_updated_jan_2020_x64_dvd_cd782fbe.iso')
+
+def importvmcopy(vmname,vmloc,templatename,templateloc):
+    subprocess.Popen(["powershell.exe",".\Scripts\pwscript\\importVM-Copy.ps1 " + vmname + ' ' + vmloc + ' ' + ' ' + templatename + ' ' + templateloc])
+    time.sleep(15)
+    path = 'importVM_Copy-out.txt'
+    with open(path, encoding=check_chardet(path)) as f:
+        data = f.read()
+        print(data)
+    if os.path.exists('importVM_Copy-out.txt'):
+        Packs.messages.finishmsg()
+        os.remove('importVM_Copy-out.txt')
+        time.sleep(1)
+        return True
+    else:
+        time.sleep(3)
+        if os.path.exists('importVM_Copy-out.txt'):
+            Packs.messages.finishmsg()
+            return True
+        else:
+            Packs.messages.faildmsg()
+            return False
+
+# importvmcopy('TEST6','D:\VMachines\Hyper-V','TEST2','D:\VMachines\Hyper-V\outputVM\TEST2\TEST2')
