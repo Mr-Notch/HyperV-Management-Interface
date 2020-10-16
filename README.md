@@ -169,7 +169,7 @@ Example: 3306,localhost,root,hypervisorlinkdb
 3. MySQL 数据库的用户名（不建议填`root`，如果需要可以自行建立并将建立的用户名填入）
 4. MySQL 数据库名（需要手动建立，如无特殊要求抄示范即可）
 
-填入完毕后按下回车键，会弹出一个简短的回复信息并重新弹出输入选项卡的输入框：
+填入完毕后按下 <kbd>Enter</kbd> 键，会弹出一个简短的回复信息并重新弹出输入选项卡的输入框：
 
 ```
 Great! Your setting is 3306,localhost,root,hypervisorlinkdb
@@ -197,7 +197,7 @@ Type in the port you like below, do not set the same as other ports (Default: 64
 
 **如需将前端与其他辅助服务部署在非内网服务器，需要将防火墙出入规则加上该端口的 TCP/UDP 双协议**
 
-填入完毕后按下回车，也会有一个小提示并继续让你填写：
+填入完毕后按下 <kbd>Enter</kbd> 键，也会有一个小提示并继续让你填写：
 
 ```
 Great! Your setting is 6400
@@ -388,7 +388,7 @@ Type-in the options in 1-5 or q to exit:
 
 #### IV. 重置一个虚拟机
 
-在 Hyper-V 中，重置与重启效果相同。相当于给虚拟机按下了 Reset 键。
+在 Hyper-V 中，重置与重启效果相同。相当于给虚拟机按下了  <kbd>Reset</kbd> 键。
 
 在输入框输入`4`，在第二个输入框输入要执行重置操作的虚拟机名称
 
@@ -398,7 +398,7 @@ Type-in the options in 1-5 or q to exit:
 
 虚拟机太多怎么办？在文本框输入`5`，进入虚拟机检索功能。
 
-此时弹出第二个输入框，输入要检索的虚拟机名称或其部分字母，按下回车，系统将自动写出符合要求的虚拟机。
+此时弹出第二个输入框，输入要检索的虚拟机名称或其部分字母，按下 <kbd>Enter</kbd> 键，系统将自动写出符合要求的虚拟机。
 
 ```
 Type-in the options in 1-5 or q to exit: 5
@@ -478,7 +478,7 @@ Example: TEST,2GB,2,TESTSwitch,C,10GB,D:\Virtual Machines\,D:\ISO Files\
 - 虚拟机位置：D:\Virtual Machines\
 - ISO位置：D:\ISO Files\
 
-严格填好元素后，按下回车键
+严格填好元素后，按下 <kbd>Enter</kbd> 键
 
 ```
 Great! Your setting is TEST,2GB,2,TESTSwitch,C,10GB,D:\Virtual Machines\,D:\ISO Files\
@@ -550,7 +550,7 @@ Example: TEST,D:\Virtual Machines\,SAMPLE-WINDOWS,D:\SAMPLE Files\
 
 例如：`TEST,D:\Virtual Machines\,SAMPLE-WINDOWS,D:\SAMPLE Files\`
 
-将元素修改至适当的设置，并使用英文逗号分隔开。如果格式和上方实例相似，那么按下回车，等待其导入完成：
+将元素修改至适当的设置，并使用英文逗号分隔开。如果格式和上方实例相似，那么按下 <kbd>Enter</kbd> 键，等待其导入完成：
 
 ```
 Great! Your setting is `TEST,D:\Virtual Machines\,SAMPLE-WINDOWS,D:\SAMPLE Files\`
