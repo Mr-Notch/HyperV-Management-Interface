@@ -13,3 +13,5 @@ import Scripts.pwfunc
 #     print('q. Exit the menu')
 #     print('--------------------------')
 #     time.sleep(1)
+
+# 该片段代码暂时放在 injector.py 的 controlinject() 函数中
