@@ -61,6 +61,7 @@ Hydrogen Cloud 在以下环境中已经将 HVL 用于实际生产环境：
 - [常规设置二级菜单](https://github.com/Mr-Notch/HyperVisorLink#settings-menu---%E5%B8%B8%E8%A7%84%E8%AE%BE%E7%BD%AE%E4%BA%8C%E7%BA%A7%E8%8F%9C%E5%8D%95)
 
   - [数据库设置](https://github.com/Mr-Notch/HyperVisorLink#%E7%AC%AC%E4%B8%80%E6%AD%A5mysql-settings)
+
   - [端口设置](https://github.com/Mr-Notch/HyperVisorLink#%E7%AC%AC%E4%BA%8C%E6%AD%A5port-settings)
   - [API 设置](https://github.com/Mr-Notch/HyperVisorLink#%E7%AC%AC%E4%B8%89%E6%AD%A5api-settings)
 
@@ -76,6 +77,7 @@ Hydrogen Cloud 在以下环境中已经将 HVL 用于实际生产环境：
   - [搜寻虚拟机](https://github.com/Mr-Notch/HyperVisorLink#iiv-%E6%90%9C%E5%AF%BB%E8%99%9A%E6%8B%9F%E6%9C%BA)
 
 [TOC]
+
 
 
 ### 第一次使用需配置的常规项目（必看）
@@ -262,25 +264,46 @@ By the way, you can also modify it in the "./Config/inf_config.txt".
 
 ```
 *** Welcome to use HyperVisor Link Control Menu ***
-
 --------------------------
 1. List all VMs
 2. Start a VM
 3. Stop a VM
 4. Reset a VM
 5. Find a VM
+6. Create a new VM
+7. Create a backup-point
+8. Delete a VM
+9. Delete a backup-point
+10. Import a VM from a template
+11. Export a VM into the template
 q. Exit the menu
 --------------------------
-Type-in the options in 1-5 or q to exit: 
+Type-in the options in 1-11 or q to exit: 
 ```
 
 > 1. List all VMs - 列举出所有存在的虚拟机
+>
 > 2. Start a VM - 开启一个虚拟机
+>
 > 3. Stop a VM - 关闭一个虚拟机
+>
 > 4. Reset a VM - 重置一个虚拟机
+>
 > 5. Find a VM - 在列表中搜寻一个虚拟机
 >
->    q. Exit the menu - 退出至一级菜单
+> 6. Create a new VM - 创建一个新虚拟机
+>
+> 7. Create a backup-point - 给虚拟机创建一个备份还原点
+>
+> 8. Delete a VM - 删除一个虚拟机到回收站
+>
+> 9. Delete a backup-point - 永久删除一个备份还原点
+>
+> 10. Import a VM from a template - 从模板中导入虚拟机
+>
+> 11. Export a VM into the template - 将虚拟机导出到模板
+>
+>     q. Exit the menu - 退出至一级菜单
 
 #### I. 列举虚拟机
 
@@ -358,7 +381,7 @@ Now loading thread process, Please wait...
 Type-in the options in 1-5 or q to exit: 
 ```
 
-若提示``警告: 虚拟机已处于指定的状态。``，证明虚拟机已经处于关闭状态，无法再执行关机操作
+若提示 ``警告: 虚拟机已处于指定的状态。``，证明虚拟机已经处于关闭状态，无法再执行关机操作
 
 否则虚拟机应当被执行关机指令。
 
@@ -370,7 +393,7 @@ Type-in the options in 1-5 or q to exit:
 
 按下回车后，虚拟机应当被重置。如果弹出报错，虚拟机则处于关闭状态或其他状态（例如正在导出/生成还原点）
 
-#### IIV. 搜寻虚拟机
+#### V. 搜寻虚拟机
 
 虚拟机太多怎么办？在文本框输入`5`，进入虚拟机检索功能。
 
@@ -391,4 +414,168 @@ TEST Off   0           0                 00:00:00 正常运行   9.0
 
 Type-in the options in 1-5 or q to exit: 
 ```
+
+#### VI. 新建虚拟机
+
+最重要的功能。若想要通过 HyperVisorLink 新建虚拟机，请务必阅读该板块。
+
+在输入框输入`6`，进入新建虚拟机二级界面
+
+```
+*** New-VM Settings & Manage Menu ***
+--------------------------
+1. Continue to create a new VM
+q. Exit the menu
+--------------------------
+Type-in the options in 1 or q to exit: 
+```
+
+此时，弹出一个确认选项。若选择`1`，则进入创建虚拟机菜单
+
+若选择`q`，则退出返回至上一级菜单
+
+输入`1`，进入下一级菜单：
+
+```
+*** Create a VM ***
+
+We need VMName / RamSize / CPUNumber / VMSwitchName / VMDiskName / VMDiskSize / VMLocation / ISOLocation
+Please enter them carefully and separate them with commas
+Example: TEST,2GB,2,TESTSwitch,C,10GB,D:\Virtual Machines\,D:\ISO Files\
+
+ Input these strings below.
+ Input: 
+```
+
+在这里，需要输入一个集合，一个包含新建虚拟机必要信息的集合。
+
+其中集合元素有：
+
+- VMName - 虚拟机名称
+- RamSize - 虚拟机内存大小
+- CPUNumber - CPU个数
+- VMSwitchName - 虚拟交换机个数
+- VMDiskName - 虚拟机硬盘名称
+- VMDiskSize - 虚拟机硬盘大小
+- VMLocation - 虚拟机路径
+- ISOLocation - 要挂载 ISO 镜像的路径
+
+**所有集合元素必须严格按照格式填写，以逗号分隔，不按格式填写可能会导致其他错误**
+
+标准填写方式：`名称,内存,CPU,虚拟交换机,硬盘名称,硬盘大小,虚拟机路径,ISO路径`
+
+例如：`TEST,2GB,2,TESTSwitch,C,10GB,D:\Virtual Machines\,D:\ISO Files\`
+
+那么将创建一个拥有以下特性的虚拟机：
+
+- 虚拟机名称：TEST
+- 内存大小：2GB
+- CPU个数：2 个
+- 虚拟交换机：TESTSwitch
+- 磁盘名称：C
+- 磁盘大小：10GB
+- 虚拟机位置：D:\Virtual Machines\
+- ISO位置：D:\ISO Files\
+
+严格填好元素后，按下回车键
+
+```
+Great! Your setting is TEST,2GB,2,TESTSwitch,C,10GB,D:\Virtual Machines\,D:\ISO Files\
+
+
+Now loading thread process, Please wait...
+
+
+Name  State CPUUsage(%) MemoryAssigned(M) Uptime   Status Version
+----  ----- ----------- ----------------- ------   ------ -------
+TEST Off   0           0                 00:00:00 正常运行   9.0   
+
+
+
+
+ *** Execution finished *** 
+```
+
+此时，虚拟机已经创建好了。
+
+
+
+（此处省略一些：7-9没写）
+
+#### X. 从模板导入一个虚拟机
+
+若要创建大量配置好的虚拟机，避免不了需要实现一个模板批量导入虚拟机的脚本。
+
+下面将学习如何使用 HyperVisor Link 的导入虚拟机功能批量导入虚拟机
+
+在输入框输入`10`，进入下一级菜单：
+
+```
+*** Import VM Manage Menu ***
+
+--------------------------
+1. Import and create a copy of the VM
+2. Import and register the VM in place
+3. Import and move the VM to a new location
+q. Exit the menu
+--------------------------
+Type-in the options in 1-3 or q to exit: 
+```
+
+> 1. Import and create a copy of the VM - 从模板导入并直接从模板复制一个新虚拟机到指定路径
+> 2. Import and register the VM in place - 就地注册虚拟机，直接调用模板
+> 3. Import and move the VM to a new location - 将模板转移至指定路径并调用
+
+##### 1. 从模板复制虚拟机并调用
+
+该方法适用于已经设计好的模板，需要直接从模板复制虚拟机副本。
+
+输入框输入`1`，进入下级菜单：
+
+```
+*** Import and create a copy of the VM ***
+
+We need VMName / VMLocation / TemplateName / TemplateLocation
+Please enter them carefully and separate them with commas
+Example: TEST,D:\Virtual Machines\,SAMPLE-WINDOWS,D:\SAMPLE Files\
+
+ Input these strings below.
+ Input: 
+```
+
+在此需要填一个集合，集合元素由以下构成：
+
+`虚拟机名称,虚拟机路径,模板名称,模板路径`
+
+例如：`TEST,D:\Virtual Machines\,SAMPLE-WINDOWS,D:\SAMPLE Files\`
+
+将元素修改至适当的设置，并使用英文逗号分隔开。如果格式和上方实例相似，那么按下回车，等待其导入完成：
+
+```
+Great! Your setting is `TEST,D:\Virtual Machines\,SAMPLE-WINDOWS,D:\SAMPLE Files\`
+
+
+Now loading thread process, Please wait...
+
+Virtual Machines\684E6F88-3EE2-4FC3-B2CF-9A6040EBE4EB.vmcx
+
+Name           State CPUUsage(%) MemoryAssigned(M) Uptime   Status   Version
+-------------- ----- ----------- ----------------- ------   ------   -------
+SAMPLE-WINDOWS Off   0           0                 00:00:00 正常运行 9.0    
+
+
+
+Name  State CPUUsage(%) MemoryAssigned(M) Uptime   Status Version
+----  ----- ----------- ----------------- ------   ------ -------
+TEST Off   0           0                 00:00:00 正常运行   9.0    
+
+
+
+
+ *** Execution finished *** 
+```
+
+此时，从模板导入的虚拟机已经成功被复制。
+
+虚拟机的名称为 `TEST`.
 
