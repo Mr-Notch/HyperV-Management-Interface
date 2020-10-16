@@ -61,7 +61,6 @@ Hydrogen Cloud 在以下环境中已经将 HVL 用于实际生产环境：
 - [常规设置二级菜单](https://github.com/Mr-Notch/HyperVisorLink#settings-menu---%E5%B8%B8%E8%A7%84%E8%AE%BE%E7%BD%AE%E4%BA%8C%E7%BA%A7%E8%8F%9C%E5%8D%95)
 
   - [数据库设置](https://github.com/Mr-Notch/HyperVisorLink#%E7%AC%AC%E4%B8%80%E6%AD%A5mysql-settings)
-
   - [端口设置](https://github.com/Mr-Notch/HyperVisorLink#%E7%AC%AC%E4%BA%8C%E6%AD%A5port-settings)
   - [API 设置](https://github.com/Mr-Notch/HyperVisorLink#%E7%AC%AC%E4%B8%89%E6%AD%A5api-settings)
 
@@ -75,6 +74,7 @@ Hydrogen Cloud 在以下环境中已经将 HVL 用于实际生产环境：
   - [关闭虚拟机](https://github.com/Mr-Notch/HyperVisorLink#iii-%E5%85%B3%E9%97%AD%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9F%E6%9C%BA)
   - [重置虚拟机](https://github.com/Mr-Notch/HyperVisorLink#iv-%E9%87%8D%E7%BD%AE%E4%B8%80%E4%B8%AA%E8%99%9A%E6%8B%9F%E6%9C%BA)
   - [搜寻虚拟机](https://github.com/Mr-Notch/HyperVisorLink#iiv-%E6%90%9C%E5%AF%BB%E8%99%9A%E6%8B%9F%E6%9C%BA)
+  - [新建虚拟机]()
 
 [TOC]
 
