@@ -19,8 +19,8 @@ def vm_set_computer_name(vmname, vmloc, username, userpasswd):
         print('successes')
         return True
 
-def vm_set_dvd(vmname, isoloc):
-    output = subprocess.Popen(['powershell.exe', "../func/vm_set/set_dvd.ps1" + ' ' + vmname + ' ' + isoloc], stdout=subprocess.PIPE)
+def vm_set_dvd(vmname, isoloc, dvdcontrollernum, dvdcontrollerloc):
+    output = subprocess.Popen(['powershell.exe', "../func/vm_set/set_dvd.ps1" + ' ' + vmname + ' ' + isoloc+' '+dvdcontrollernum+' '+dvdcontrollerloc], stdout=subprocess.PIPE)
     dt = output.stdout.read()
 
     popen_call = subprocess.call
@@ -34,8 +34,8 @@ def vm_set_dvd(vmname, isoloc):
         print('successes')
         return True
 
-def vm_set_vhd(vmname, vhdloc, vhdname):
-    output = subprocess.Popen(['powershell.exe', "../func/vm_set/set_vhd.ps1" + ' ' + vmname + ' ' + vhdloc+' '+vhdname], stdout=subprocess.PIPE)
+def vm_set_vhd(vmname, vhdloc, vhdname, vhdcontrollertype, vhdcontrollernum, vhdcontrollerloc):
+    output = subprocess.Popen(['powershell.exe', "../func/vm_set/set_vhd.ps1" + ' ' + vmname + ' ' + vhdloc+' '+vhdname+' '+vhdcontrollertype+' '+vhdcontrollernum+' '+vhdcontrollerloc], stdout=subprocess.PIPE)
     dt = output.stdout.read()
 
     popen_call = subprocess.call
