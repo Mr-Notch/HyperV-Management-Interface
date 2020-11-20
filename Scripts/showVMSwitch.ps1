@@ -1,1 +1,0 @@
-Get-VMSwitch | Out-File -Encoding utf8 -FilePath showVMSwitch-out.txt

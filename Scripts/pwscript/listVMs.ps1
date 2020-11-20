@@ -1,1 +1,0 @@
-Get-VM | Out-File -Encoding utf8 -FilePath listVMs-out.txt
