@@ -1,8 +1,8 @@
-#param($vmname,$vmloc,$username,$userpasswd)
-$vmname="test_244"
-$vmloc="D:\VMachines\Hyper-V"
-$username="vmachine"
-$userpasswd="Aa123456"
+param($vmname,$vmloc,$username,$userpasswd)
+#$vmname="test_244"
+#$vmloc="D:\VMachines\Hyper-V"
+#$username="vmachine"
+#$userpasswd="Aa123456"
 # 设定UAC用户账户控制
 $PassWord = ConvertTo-SecureString -String "$userpasswd" -AsPlainText -Force
 $Cred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $username, $PassWord
@@ -16,3 +16,4 @@ $vmid = $vmcx_name.Replace(".vmcx","")
 ## Write-Output $vmid
 # 在虚拟机内执行更改操作并重启
 Invoke-Command -Session $Session -ScriptBlock {param($vmid) & Rename-Computer -NewName "$vmid" -Force -Restart} -ArgumentList $vmid
+
