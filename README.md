@@ -7,6 +7,10 @@
 
 
 > 这是一个基于 Python38 的 Hyper-V 虚拟机管理工具
+> 该 branch 版本已经是旧的了
+> 请留意 Main Branch，已经推翻现有源码
+
+下面是原内容：
 
 HyperVisor Link（简称 HVL）是一个由底层 PowerShell 脚本控制 Hyper-V 服务，并不需要安装其他复杂功能的 Python 程序。
 
