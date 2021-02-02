@@ -1,5 +1,5 @@
-## HyperVisor Link
-基于 Python 与 Powershell 的 Hyper-V 远程管理工具（API）
+## HyperV Management Interface (HMI)
+基于 Python 与 Powershell 的 Hyper-V 远程管理工具（前HyperVisorLink）
 
 ### API
 目前已经添加以下 API 支持：
