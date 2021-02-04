@@ -1,17 +1,21 @@
 # -- coding: utf-8 --
 from terminal_layout.extensions.choice import *
 from terminal_layout import *
+import ImportVMGUI
 
-c = Choice('Welcome to use Hyper-V Management Interface:',
-           ['Import-VM', 'Export-VM', 'New-VM', 'Delete-VM', 'Create-PortMirror','*Exit*'],
+mainmenu = Choice('Welcome to use Hyper-V Management Interface:',
+           ['Import-VM', 'Export-VM', 'New-VM', 'Delete-VM', 'Create-PortMirror', 'Edit-VM', '*Exit*'],
            icon_style=StringStyle(fore=Fore.yellow),
            selected_style=StringStyle(fore=Fore.red))
 
-choice = c.get_choice()
-if choice:
-    index, value = choice
+
+
+Main_Choice = mainmenu.get_choice()
+if Main_Choice:
+    index, value = Main_Choice
     if value == 'Import-VM':
         print(value, '导入虚拟机')
+        ImportVMGUI.guiwriter()
     elif value == 'Export-VM':
         print(value, '导出虚拟机')
     elif value == 'New-VM':
@@ -20,5 +24,7 @@ if choice:
         print(value, '删除虚拟机')
     elif value == 'Create-PortMirror':
         print(value, '创建端口映射')
+    elif value == 'Edit-VM':
+        print(value, '编辑虚拟机配置')
     else:
         print(value, '退出程序')
