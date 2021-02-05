@@ -1,8 +1,9 @@
 # -- coding: utf-8 --
 import subprocess
-
+import Injector
+sys_path=Injector.getSysLocation()
 def vm_info_getPowerStatus(vmname):
-    output = subprocess.Popen(['powershell.exe', "../func/vm_info/info_getPowerStatus.ps1" + ' ' + vmname], stdout=subprocess.PIPE)
+    output = subprocess.Popen(['powershell.exe', sys_path+"func/vm_info/info_getPowerStatus.ps1" + ' ' + vmname], stdout=subprocess.PIPE)
     dt = output.stdout.read().decode().replace(" ","")
 
     popen_call = subprocess.call
@@ -12,7 +13,7 @@ def vm_info_getPowerStatus(vmname):
         return dt
 
 def vm_info_getAddress(vmname):
-    output = subprocess.Popen(['powershell.exe', "../func/vm_info/info_getAddress.ps1" + ' ' + vmname], stdout=subprocess.PIPE)
+    output = subprocess.Popen(['powershell.exe', sys_path+"func/vm_info/info_getAddress.ps1" + ' ' + vmname], stdout=subprocess.PIPE)
     dt = output.stdout.read().decode().replace(" ","")
 
     popen_call = subprocess.call
@@ -22,7 +23,7 @@ def vm_info_getAddress(vmname):
         return dt
 
 def vm_info_getAllVM():
-    output = subprocess.Popen(['powershell.exe', "../func/vm_info/info_getAllVM.ps1"], stdout=subprocess.PIPE)
+    output = subprocess.Popen(['powershell.exe', sys_path+"func/vm_info/info_getAllVM.ps1"], stdout=subprocess.PIPE)
     dt = output.stdout.read().decode().replace(" ","")
 
     popen_call = subprocess.call
@@ -32,7 +33,7 @@ def vm_info_getAllVM():
         return dt
 
 def vm_info_getVMID(vmname,vmloc):
-    output = subprocess.Popen(['powershell.exe', "../func/vm_info/info_getVMID.ps1" + ' ' + vmname + ' ' + vmloc], stdout=subprocess.PIPE)
+    output = subprocess.Popen(['powershell.exe', sys_path+"func/vm_info/info_getVMID.ps1" + ' ' + vmname + ' ' + vmloc], stdout=subprocess.PIPE)
     dt = output.stdout.read().decode().replace(" ","")
 
     popen_call = subprocess.call

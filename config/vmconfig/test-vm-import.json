@@ -1,0 +1,21 @@
+{
+    "vm.maturity.start": {
+        "maturity.start.year": "2222",
+        "maturity.start.month": "222",
+        "maturity.start.day": "222"
+    },
+    "vm.maturity.end": {
+        "maturity.end.year": "222",
+        "maturity.end.month": "222",
+        "maturity.end.day": "22"
+    },
+    "vm.name": "test-vm-import",
+    "vm.id": "035ECC8A-4A81-46C6-B7CE-D826910F4444",
+    "vm.cpu.number": "2",
+    "vm.ran.size": "2GB",
+    "vm.network.ipv4addr": "\r\n\r\n192.168.137.217,fe80::399b:5f28:664f:834d,2408:8234:9...\r\n\r\n\r\n",
+    "vm.network.ipv6addr": "null",
+    "vm.network.macaddr": "null",
+    "vm.os.version": "null",
+    "vm.locate.location": "D:\\VirtualMachine\\Hyper-V\\"
+}

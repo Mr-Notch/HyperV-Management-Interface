@@ -1,10 +1,11 @@
 # -- coding: utf-8 --
 import subprocess
-
+import Injector
+sys_path=Injector.getSysLocation()
 
 def vm_create_recovery(vmname, checkpointname):
     output = subprocess.Popen(
-        ['powershell.exe', "../vm_create/create_recovery.ps1" + ' ' + vmname + ' ' + checkpointname],
+        ['powershell.exe', sys_path+"func/vm_create/create_recovery.ps1" + ' ' + vmname + ' ' + checkpointname],
         stdout=subprocess.PIPE)
     dt = output.stdout.read()
 
@@ -21,7 +22,7 @@ def vm_create_recovery(vmname, checkpointname):
 
 def vm_create_vhd_dynamic(vhdsize, vhdloc, vhdname):
     output = subprocess.Popen(
-        ['powershell.exe', "../func/vm_create/create_vhd_dynamic.ps1" + ' ' + vhdsize + ' ' + vhdloc + ' ' + vhdname],
+        ['powershell.exe', sys_path+"func/vm_create/create_vhd_dynamic.ps1" + ' ' + vhdsize + ' ' + vhdloc + ' ' + vhdname],
         stdout=subprocess.PIPE)
     dt = output.stdout.read()
 
@@ -38,7 +39,7 @@ def vm_create_vhd_dynamic(vhdsize, vhdloc, vhdname):
 
 def vm_create_vhd_static(vhdsize, vhdloc, vhdname):
     output = subprocess.Popen(
-        ['powershell.exe', "../func/vm_create/create_vhd_static.ps1" + ' ' + vhdsize + ' ' + vhdloc + ' ' + vhdname],
+        ['powershell.exe', sys_path+"func/vm_create/create_vhd_static.ps1" + ' ' + vhdsize + ' ' + vhdloc + ' ' + vhdname],
         stdout=subprocess.PIPE)
     dt = output.stdout.read()
 
@@ -55,7 +56,7 @@ def vm_create_vhd_static(vhdsize, vhdloc, vhdname):
 
 def vm_create_vm(vmname, ramsize, cpunum, vmswitchname, vmloc):
     output = subprocess.Popen(['powershell.exe',
-                               "../func/vm_create/create_vm.ps1" + ' ' + vmname + ' ' + ramsize + ' ' + cpunum + ' ' + vmswitchname + ' ' + vmloc],
+                               sys_path+"func/vm_create/create_vm.ps1" + ' ' + vmname + ' ' + ramsize + ' ' + cpunum + ' ' + vmswitchname + ' ' + vmloc],
                               stdout=subprocess.PIPE)
     dt = output.stdout.read()
 

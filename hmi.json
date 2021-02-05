@@ -1,0 +1,10 @@
+{
+    "hmi.system.location": "C:\\Users\\HGR\\Documents\\PhantomHyper\\",
+    "hmi.system.func.location": "C:\\Users\\HGR\\Documents\\PhantomHyper\\\\func",
+    "hmi.system.utilities.location": "C:\\Users\\HGR\\Documents\\PhantomHyper\\\\utilities",
+    "hmi.system.config.location": "C:\\Users\\HGR\\Documents\\PhantomHyper\\\\config",
+    "hmi.vm.location": "C:\\Users\\HGR\\Documents\\PhantomHyper\\\\_Files\\VTs",
+    "hmi.iso.location": "C:\\Users\\HGR\\Documents\\PhantomHyper\\\\_Files\\iso",
+    "hmi.template.location": "C:\\Users\\HGR\\Documents\\PhantomHyper\\\\_Files\\templates",
+    "hmi.system.interface": "PowerShell"
+}

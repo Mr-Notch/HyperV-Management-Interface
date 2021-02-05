@@ -3,10 +3,11 @@ import func.vm_control.control_commander
 import func.vm_setter.set_commander
 
 
-templateloc='D:\VirtualMachine\Templates'
-templatename='test-vm-1'
-vmname='test-vm-2'
-vmloc='D:\VirtualMachine\Hyper-V'
+# templateloc='D:\VirtualMachine\Templates'
+# templatename='test-vm-1'
+# vmname='test-vm-2'
+# vmloc='D:\VirtualMachine\Hyper-V'
+
 
 output1=func.vm_control.control_commander.vm_import(templatename,templateloc,vmname,vmloc)
 if output1 == True:

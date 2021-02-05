@@ -1,7 +1,13 @@
 import subprocess
+import Injector
+
+sys_path = Injector.getSysLocation()
+
+
 def netsh_createMirrorPort(listenport, connectaddress, connectport):
     output = subprocess.Popen(
-        ['powershell.exe', "../vm_create/create_recovery.ps1" + ' ' + listenport + ' ' + connectaddress + ' ' + connectport],
+        ['powershell.exe',
+         sys_path + "func/netsh/netsh_createMirrorPort.ps1" + ' ' + listenport + ' ' + connectaddress + ' ' + connectport],
         stdout=subprocess.PIPE)
     dt = output.stdout.read()
     popen_call = subprocess.call
@@ -13,9 +19,11 @@ def netsh_createMirrorPort(listenport, connectaddress, connectport):
         print('successes')
         return True
 
+
 def netsh_removeMirrorPort(listenport, connectaddress, connectport):
     output = subprocess.Popen(
-        ['powershell.exe', "../vm_create/create_recovery.ps1" + ' ' + listenport + ' ' + connectaddress + ' ' + connectport],
+        ['powershell.exe',
+         sys_path + "func/netsh/netsh_createMirrorPort.ps1" + ' ' + listenport + ' ' + connectaddress + ' ' + connectport],
         stdout=subprocess.PIPE)
     dt = output.stdout.read()
     popen_call = subprocess.call

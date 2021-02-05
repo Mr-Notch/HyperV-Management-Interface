@@ -19,7 +19,8 @@ import os
 # network_macaddr = '00:xx:xx:xx:xx:xx'
 # os_version = 'Windows 10 2004'
 # locate_location = 'D:\\HM\\VM\\' + vmname
-
+import Injector
+sys_path = Injector.getSysLocation()
 
 def VMConfWriter(vmname, vmid, vmcpunum, vmramsize, network_ipv4addr, network_ipv6addr, network_macaddr, os_version,
                  locate_location,
@@ -55,7 +56,7 @@ def VMConfWriter(vmname, vmid, vmcpunum, vmramsize, network_ipv4addr, network_ip
 
     }
 
-    path = "./vmconfig/" + vmname + ".json"
+    path = sys_path+"config/vmconfig/" + vmname + ".json"
     if not os.path.isfile(path):
         fd = open(path, mode="w", encoding="utf-8")
         fd.close()
