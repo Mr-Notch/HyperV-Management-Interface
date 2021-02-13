@@ -1,9 +1,11 @@
 # -- coding: utf-8 --
 import subprocess
+import Injector
+sys_path=Injector.getSysLocation()
 
 
 def vm_remove_dvd(vmname, dvdcontrollernum, dvdcontrollerloc):
-    output = subprocess.Popen(['powershell.exe', "../func/vm_remove/remove_dvd.ps1" + ' ' + vmname + ' ' + dvdcontrollernum+' '+dvdcontrollerloc], stdout=subprocess.PIPE)
+    output = subprocess.Popen(['powershell.exe', sys_path+"func/vm_remove/remove_dvd.ps1" + ' ' + vmname + ' ' + dvdcontrollernum+' '+dvdcontrollerloc], stdout=subprocess.PIPE)
     dt = output.stdout.read()
 
     popen_call = subprocess.call
@@ -18,7 +20,7 @@ def vm_remove_dvd(vmname, dvdcontrollernum, dvdcontrollerloc):
         return True
 
 def vm_remove_vhd(vmname, vhdcontrollertype,vhdcontrollernum, vhdcontrollerloc):
-    output = subprocess.Popen(['powershell.exe', "../func/vm_remove/remove_dvd.ps1" + ' ' + vmname + ' ' + vhdcontrollertype+' '+vhdcontrollernum+' '+vhdcontrollerloc], stdout=subprocess.PIPE)
+    output = subprocess.Popen(['powershell.exe', sys_path+"func/vm_remove/remove_dvd.ps1" + ' ' + vmname + ' ' + vhdcontrollertype+' '+vhdcontrollernum+' '+vhdcontrollerloc], stdout=subprocess.PIPE)
     dt = output.stdout.read()
 
     popen_call = subprocess.call
@@ -33,7 +35,7 @@ def vm_remove_vhd(vmname, vhdcontrollertype,vhdcontrollernum, vhdcontrollerloc):
         return True
 
 def vm_remove_vm(vmname):
-    output = subprocess.Popen(['powershell.exe', "../func/vm_remove/remove_vm.ps1" + ' ' + vmname], stdout=subprocess.PIPE)
+    output = subprocess.Popen(['powershell.exe', sys_path+"func/vm_remove/remove_vm.ps1" + ' ' + vmname], stdout=subprocess.PIPE)
     dt = output.stdout.read()
 
     popen_call = subprocess.call

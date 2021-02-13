@@ -1,9 +1,10 @@
 # -- coding: utf-8 --
 import subprocess
-
+import Injector
+sys_path=Injector.getSysLocation()
 
 def vm_delete_vhd(vmname,vhdname,vmloc):
-    output = subprocess.Popen(['powershell.exe', "../func/vm_delete/delete_vm.ps1" + ' ' + vmname+' '+vhdname+' '+vmloc], stdout=subprocess.PIPE)
+    output = subprocess.Popen(['powershell.exe', sys_path+"func/vm_delete/delete_vm.ps1" + ' ' + vmname+' '+vhdname+' '+vmloc], stdout=subprocess.PIPE)
     dt = output.stdout.read()
 
     popen_call = subprocess.call
@@ -18,7 +19,7 @@ def vm_delete_vhd(vmname,vhdname,vmloc):
         return True
 
 def vm_delete_vm(vmname,vmloc):
-    output = subprocess.Popen(['powershell.exe', "../func/vm_delete/delete_vm.ps1" + ' ' + vmname+' '+vmloc], stdout=subprocess.PIPE)
+    output = subprocess.Popen(['powershell.exe', sys_path+"func/vm_delete/delete_vm.ps1" + ' ' + vmname+' '+vmloc], stdout=subprocess.PIPE)
     dt = output.stdout.read()
 
     popen_call = subprocess.call

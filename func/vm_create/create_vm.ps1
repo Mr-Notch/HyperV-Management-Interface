@@ -11,6 +11,7 @@ param($vmname,$ramsize,$cpunum,$vmswitchname,$vmloc)
 
 
 #New-VM -Name $vmname -Path "$vmloc" -MemoryStartupBytes $ram -NewVHDPath "$vmloc\$vmname\Virtual Hard Disks\Main-$disk.vhdx" -NewVHDSizeBytes $disk -SwitchName $vmswitchname -Generation 1 -Force
+# https://docs.microsoft.com/zh-cn/virtualization/hyper-v-on-windows/quick-start/try-hyper-v-powershell
 $VM = @{
     Name = $vmname
     MemoryStartupBytes = $ramsize

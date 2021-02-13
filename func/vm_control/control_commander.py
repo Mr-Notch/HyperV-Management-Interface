@@ -1,9 +1,12 @@
 # -- coding: utf-8 --
 import subprocess
 
+import Injector
+
+sys_path = Injector.getSysLocation()
 
 def vm_export(vmname, exportloc):
-    output = subprocess.Popen(['powershell.exe', "../func/vm_control/vm_export.ps1" + ' ' + vmname + ' ' + exportloc],
+    output = subprocess.Popen(['powershell.exe', sys_path+"func/vm_control/vm_export.ps1" + ' ' + vmname + ' ' + exportloc],
                               stdout=subprocess.PIPE)
     dt = output.stdout.read()
 
@@ -22,7 +25,7 @@ def vm_export(vmname, exportloc):
 
 def vm_import(templatename, templateloc, vmname, vmloc):
     output = subprocess.Popen(
-        ['powershell.exe', "../func/vm_control/vm_import.ps1" + ' ' + templatename + ' ' + templateloc + ' ' + vmname + ' ' + vmloc],
+        ['powershell.exe', sys_path+"func/vm_control/vm_import.ps1" + ' ' + templatename + ' ' + templateloc + ' ' + vmname + ' ' + vmloc],
         stdout=subprocess.PIPE)
     dt = output.stdout.read()
 
@@ -38,7 +41,7 @@ def vm_import(templatename, templateloc, vmname, vmloc):
         return True
 
 def vm_start(vmname):
-    output = subprocess.Popen(['powershell.exe', "../func/vm_control/vm_start.ps1" + ' '+vmname],stdout=subprocess.PIPE)
+    output = subprocess.Popen(['powershell.exe', sys_path+"func/vm_control/vm_start.ps1" + ' '+vmname],stdout=subprocess.PIPE)
     dt = output.stdout.read()
 
     popen_call = subprocess.call
@@ -53,7 +56,7 @@ def vm_start(vmname):
         return True
 
 def vm_stop_default(vmname):
-    output = subprocess.Popen(['powershell.exe', "../func/vm_control/vm_stop_default.ps1" + ' '+vmname],stdout=subprocess.PIPE)
+    output = subprocess.Popen(['powershell.exe', sys_path+"func/vm_control/vm_stop_default.ps1" + ' '+vmname],stdout=subprocess.PIPE)
     dt = output.stdout.read()
 
     popen_call = subprocess.call
@@ -68,7 +71,7 @@ def vm_stop_default(vmname):
         return True
 
 def vm_stop_force(vmname):
-    output = subprocess.Popen(['powershell.exe', "../func/vm_control/vm_stop_force.ps1" + ' '+vmname],stdout=subprocess.PIPE)
+    output = subprocess.Popen(['powershell.exe', sys_path+"func/vm_control/vm_stop_force.ps1" + ' '+vmname],stdout=subprocess.PIPE)
     dt = output.stdout.read()
 
     popen_call = subprocess.call
@@ -83,7 +86,7 @@ def vm_stop_force(vmname):
         return True
 
 def vm_stop_save(vmname):
-    output = subprocess.Popen(['powershell.exe', "../func/vm_control/vm_stop_save.ps1" + ' '+vmname],stdout=subprocess.PIPE)
+    output = subprocess.Popen(['powershell.exe', sys_path+"func/vm_control/vm_stop_save.ps1" + ' '+vmname],stdout=subprocess.PIPE)
     dt = output.stdout.read()
 
     popen_call = subprocess.call
