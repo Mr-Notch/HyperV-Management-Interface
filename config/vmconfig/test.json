@@ -1,0 +1,20 @@
+{
+    "vm.maturity.start": {
+        "maturity.start.year": "2021",
+        "maturity.start.month": "2",
+        "maturity.start.day": "1"
+    },
+    "vm.maturity.end": {
+        "maturity.end.year": "2022",
+        "maturity.end.month": "3",
+        "maturity.end.day": "1"
+    },
+    "vm.name": "test",
+    "vm.id": "xxxxx-xxxxx-xxxxx-xxxxx-xxxxx",
+    "vm.cpu.number": "2",
+    "vm.ran.size": "3",
+    "vm.network.ipv4addr": "192.168.137.xxx",
+    "vm.network.ipv6addr": "fe80:xxxx:xxxx:xxxx:xxxx:xxxx",
+    "vm.network.macaddr": "00:xx:xx:xx:xx:xx",
+    "vm.os.version": "Windows 10 2004"
+}

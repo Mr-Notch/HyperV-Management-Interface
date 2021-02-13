@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "hmi.system.location": "D:\\HyperV-Management-Interface-main\\HyperV-Management-Interface-main\\",
     "hmi.system.func.location": "D:\\HyperV-Management-Interface-main\\HyperV-Management-Interface-main\\\\func",
     "hmi.system.utilities.location": "D:\\HyperV-Management-Interface-main\\HyperV-Management-Interface-main\\\\utilities",
@@ -6,5 +7,14 @@
     "hmi.vm.location": "D:\\HyperV-Management-Interface-main\\HyperV-Management-Interface-main\\\\_Files\\VTs",
     "hmi.iso.location": "D:\\HyperV-Management-Interface-main\\HyperV-Management-Interface-main\\\\_Files\\iso",
     "hmi.template.location": "D:\\HyperV-Management-Interface-main\\HyperV-Management-Interface-main\\\\_Files\\templates",
+=======
+    "hmi.system.location": "C:\\Users\\HGR\\Documents\\PhantomHyper\\",
+    "hmi.system.func.location": "C:\\Users\\HGR\\Documents\\PhantomHyper\\\\func",
+    "hmi.system.utilities.location": "C:\\Users\\HGR\\Documents\\PhantomHyper\\\\utilities",
+    "hmi.system.config.location": "C:\\Users\\HGR\\Documents\\PhantomHyper\\\\config",
+    "hmi.vm.location": "C:\\Users\\HGR\\Documents\\PhantomHyper\\\\_Files\\VTs",
+    "hmi.iso.location": "C:\\Users\\HGR\\Documents\\PhantomHyper\\\\_Files\\iso",
+    "hmi.template.location": "C:\\Users\\HGR\\Documents\\PhantomHyper\\\\_Files\\templates",
+>>>>>>> 04cb11b9e8cf5738281d7f8e28fb494eaf24a006
     "hmi.system.interface": "PowerShell"
 }

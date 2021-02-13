@@ -1,5 +1,6 @@
 # -- coding: utf-8 --
 import random
+<<<<<<< HEAD
 import Injector
 import os
 
@@ -49,3 +50,9 @@ def randomDice():
 #
 # aaa=randomDice()
 # print(aaa)
+=======
+
+def randomDice():
+    random_value = random.randint(10000,20000)
+    return random_value
+>>>>>>> 04cb11b9e8cf5738281d7f8e28fb494eaf24a006

@@ -7,11 +7,18 @@ import os
 
 
 
+<<<<<<< HEAD
 sys_location = "D:\\HyperV-Management-Interface-main\\HyperV-Management-Interface-main\\"
 vm_location = "D:\\VirtualMachine\\Hyper-V\\"
 iso_location = "D:\\HyperV-Management-Interface-main\\VirtualMachine\\ISO\\"
 template_location = "D:\\HyperV-Management-Interface-main\\VirtualMachine\\Templates\\"
 
+=======
+sys_location = "C:\\Users\\HGR\\Documents\\PhantomHyper\\"
+vm_location = "D:\\VirtualMachine\\Hyper-V\\"
+iso_location = "D:\\"
+template_location = "D:\\VirtualMachine\\Templates\\"
+>>>>>>> 04cb11b9e8cf5738281d7f8e28fb494eaf24a006
 
 
 def getSysLocation():

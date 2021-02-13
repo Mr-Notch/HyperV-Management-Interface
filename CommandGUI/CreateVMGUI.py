@@ -2,7 +2,10 @@
 import func.vm_create.create_commander
 import func.vm_setter.set_commander
 import func.vm_control.control_commander
+<<<<<<< HEAD
 import func.netsh.netsh_commander
+=======
+>>>>>>> 04cb11b9e8cf5738281d7f8e28fb494eaf24a006
 import utilities.getStatus
 import utilities.getVMID
 import utilities.getAddress
@@ -22,7 +25,10 @@ def guiwriter():
     vm_cpunum = input('CPU Number (Int64) : ')
     vm_ramsize = input('RAM Size (Int64) : ')+'GB'
     vm_switch_name = input('VM Switch Name (String) : ')
+<<<<<<< HEAD
     port_num = input('Port Mirrored Number (Int64) : ')
+=======
+>>>>>>> 04cb11b9e8cf5738281d7f8e28fb494eaf24a006
     vm_location = vmloc
     vhd_size = input('VHD Size (Int64) : ')+'GB'
     vhd_location = vm_location+'\\'+vm_name
@@ -82,6 +88,7 @@ def guiwriter():
 
     vmid=utilities.getVMID.getVMID(vm_name,vm_location)
     while True:
+<<<<<<< HEAD
         vmaddress=utilities.getAddress.getAddressIfVMStarted(vm_name)
         if vmaddress != "null":
             mirrored_port = '3389'
@@ -125,3 +132,13 @@ def guiwriter():
             continue
 
 guiwriter()
+=======
+        vmaddress=utilities.getAddress.getAddress(vm_name)
+        if vmaddress != "null":
+            break
+        else:
+            config.ConfigWriter.VMConfWriter(vm_name,vmid,vm_cpunum,vm_ramsize,vmaddress,"null","null","null",vm_location,maturity_start_year,maturity_start_month,maturity_start_day,maturity_end_year,maturity_end_month,maturity_end_day)
+            continue
+
+
+>>>>>>> 04cb11b9e8cf5738281d7f8e28fb494eaf24a006

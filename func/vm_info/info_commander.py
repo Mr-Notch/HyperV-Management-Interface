@@ -22,6 +22,7 @@ def vm_info_getAddress(vmname):
     else:
         return dt
 
+<<<<<<< HEAD
 def vm_info_getAddressIfVMStarted(vmname):
     output = subprocess.Popen(['powershell.exe', sys_path+"func/vm_info/info_getAddressIfVMStarted.ps1" + ' ' + vmname], stdout=subprocess.PIPE)
     dt = output.stdout.read().decode().replace(" ","")
@@ -32,6 +33,8 @@ def vm_info_getAddressIfVMStarted(vmname):
     else:
         return dt
 
+=======
+>>>>>>> 04cb11b9e8cf5738281d7f8e28fb494eaf24a006
 def vm_info_getAllVM():
     output = subprocess.Popen(['powershell.exe', sys_path+"func/vm_info/info_getAllVM.ps1"], stdout=subprocess.PIPE)
     dt = output.stdout.read().decode().replace(" ","")
