@@ -1,24 +1,26 @@
 # -- coding: utf-8 --
 import json
+import time
 
 import os
 
 
 
 
-
-<<<<<<< HEAD
+# HMI运行路径
 sys_location = "D:\\HyperV-Management-Interface-main\\HyperV-Management-Interface-main\\"
+# Hyper-V虚拟机存放路径
 vm_location = "D:\\VirtualMachine\\Hyper-V\\"
+# ISO镜像文件存放路径
 iso_location = "D:\\HyperV-Management-Interface-main\\VirtualMachine\\ISO\\"
+# 模板存放路径
 template_location = "D:\\HyperV-Management-Interface-main\\VirtualMachine\\Templates\\"
+# 虚拟机到期保持时间
+maturity_keep_time = "7"
+# 虚拟机超过到期保留时间后是否删除（若否则存放在虚拟机路径的recovery文件夹内）
+maturity_delete_switch = True
 
-=======
-sys_location = "C:\\Users\\HGR\\Documents\\PhantomHyper\\"
-vm_location = "D:\\VirtualMachine\\Hyper-V\\"
-iso_location = "D:\\"
-template_location = "D:\\VirtualMachine\\Templates\\"
->>>>>>> 04cb11b9e8cf5738281d7f8e28fb494eaf24a006
+
 
 
 def getSysLocation():
@@ -37,6 +39,14 @@ def getTemLoc():
     temloc = template_location
     return temloc
 
+def nowTime():
+    return time.strftime('%Y-%m-%d',time.localtime(time.time()))
+
+def getMaturityKeepTime():
+    return maturity_keep_time
+
+def getMaturityDeleteSwitch():
+    return maturity_delete_switch
 
 main_config = {
     "hmi.system.location": sys_location,
