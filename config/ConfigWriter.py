@@ -1,4 +1,4 @@
-# -- coding: utf-8 --
+
 import json
 import os
 # from collections import defaultdict, OrderedDict
@@ -90,11 +90,7 @@ def DiskConfigWriter(vmname, disk_size, disk_location, disk_connector_type, disk
             "disk.connector.loc": disk_connector_loc
         }
     }
-<<<<<<< HEAD
     path = sys_path+"config/diskconfig/" + vmname + ".json"
-=======
-    path = "./diskconfig/" + vmname + ".json"
->>>>>>> 04cb11b9e8cf5738281d7f8e28fb494eaf24a006
     if not os.path.isfile(path):
         fd = open(path, mode="w", encoding="utf-8")
         fd.close()
@@ -139,11 +135,7 @@ def PortConfigWriter(vmname, port_listen_port, port_connect_port, port_listen_ad
             "port.connect.address": port_connect_address
         }
     }
-<<<<<<< HEAD
     path = sys_path+"config/portconfig/" + vmname + ".json"
-=======
-    path = "./portconfig/" + vmname + ".json"
->>>>>>> 04cb11b9e8cf5738281d7f8e28fb494eaf24a006
     if not os.path.isfile(path):
         fd = open(path, mode="w", encoding="utf-8")
         fd.close()
