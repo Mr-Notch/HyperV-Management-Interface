@@ -160,5 +160,28 @@ def PortConfigWriter(vmname, port_listen_port, port_connect_port, port_listen_ad
         with open(path, mode="w") as superthis:
             superthis.write(new_json_data)
 
+def deleteVMConfig(vmname):
+    path = sys_path + "config/vmconfig/" + vmname + ".json"
+    if os.path.exists(path):
+        os.remove(path)
+        return True
+    else:
+        return False
+
+def deletePortConfig(vmname):
+    path = sys_path + "config/portconfig/" + vmname + ".json"
+    if os.path.exists(path):
+        os.remove(path)
+        return True
+    else:
+        return False
+
+def deleteDiskConfig(vmname):
+    path = sys_path + "config/diskconfig/" + vmname + ".json"
+    if os.path.exists(path):
+        os.remove(path)
+        return True
+    else:
+        return False
 
 # PortConfigWriter(vmname,port_listen_port,port_connect_port,port_listen_address,port_connect_address)
