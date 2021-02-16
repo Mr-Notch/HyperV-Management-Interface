@@ -8,9 +8,13 @@ import utilities.RandomDice
 import config.ConfigWriter
 import Injector
 import time
+import deamon.checkMaturityTime
+import deamon.mailSender
+import os
 
 temloc = Injector.getTemLoc()
 vmloc = Injector.getVMLocation()
+sys_path=Injector.getSysLocation()
 
 
 def guiwriter():
@@ -38,6 +42,9 @@ def guiwriter():
     maturity_end_day = input('Maturity End day (Int Date) : ')
     if template_name == vm_name:
         print('Error: VM Name cannot be the same as Template Name')
+        return False
+    if os.path.isfile(sys_path+'vmconfig\\'+vm_name):
+        print('Error: VM exists. Quit now.')
         return False
 
     output1 = func.vm_control.control_commander.vm_import(template_name, template_location, vm_name, vm_location)
@@ -113,6 +120,9 @@ def guiwriter():
             break
         else:
             continue
-
+    deamon.mailSender.mailSender(Injector.smtp_receiver_user, "Create-VM", vm_name, Injector.nowTime(),
+                                 deamon.checkMaturityTime.readJsonMaturityTime(vm_name),
+                                 deamon.checkMaturityTime.readJsonVMConfig(vm_name),
+                                 deamon.checkMaturityTime.readJsonConnectConfig(vm_name))
 
 guiwriter()
