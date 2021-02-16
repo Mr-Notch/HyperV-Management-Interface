@@ -10,9 +10,11 @@ import utilities.RandomDice
 import config.ConfigWriter
 import time
 import Injector
+import deamon.mailSender
+import deamon.checkMaturityTime
 
 vmloc=Injector.getVMLocation()
-
+sys_path=Injector.getSysLocation()
 
 def guiwriter():
     print('-------------')
@@ -44,8 +46,11 @@ def guiwriter():
     maturity_end_month = input('Maturity End month (Int Date) : ')
     maturity_end_day = input('Maturity End day (Int Date) : ')
 
-    sys_path=Injector.getSysLocation()
 
+
+    if os.path.isfile(sys_path+'vmconfig\\'+vm_name):
+        print('Error: VM exists. Quit now.')
+        return False
 
     output = func.vm_create.create_commander.vm_create_vm(vm_name, vm_ramsize, vm_cpunum, vm_switch_name, vm_location)
 
@@ -129,5 +134,7 @@ def guiwriter():
 
         else:
             continue
+
+    deamon.mailSender.mailSender(Injector.smtp_receiver_user,"Create-VM",vm_name,Injector.nowTime(),deamon.checkMaturityTime.readJsonMaturityTime(vm_name),deamon.checkMaturityTime.readJsonVMConfig(vm_name),deamon.checkMaturityTime.readJsonConnectConfig(vm_name))
 
 guiwriter()
