@@ -9,9 +9,9 @@ def guiwriter():
     print('---------------------')
     print('')
     vm_name = input('VM Name (String) : ')
-    mirrored_port = input('VM Mirrored Port (Int64) : ') # 内网映射端口
+    mirrored_port = input('VM Mirrored Port (Int32) : ') # 内网映射端口
     # outside_port = str(utilities.RandomDice.randomDice()) # 随机的外网端口
-    outside_port = '19132'  # 随机的外网端口
+    outside_port = input('VM Connected Port (Int32) : ')
 
     vm_ipv4addr = str(utilities.getAddress.getAddress(vm_name))
 
