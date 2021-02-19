@@ -1,1 +1,0 @@
-Get-VM | Select-Object Name | Format-List
