@@ -18,13 +18,13 @@ it_vm_netsh_extra_connect_port_number='4'
 # 新建虚拟机/导入虚拟机时开放的额外端口内网端口起始值（默认为10000开始，往后依次加1）
 it_vm_netsh_extra_mirrored_port_started='10000'
 # HMI 运行目录（填写 MainInterface.py 所在的目录即可）
-it_hmi_location='E:\\GitHubRepositories\\HMI-Python-Reforged\\'
+it_hmi_location='C:\\Users\\HGR\\Documents\\GitHub\\HyperV-Management-Interface\\'
 # Hyper-V 虚拟机运行目录（最好单独用一块磁盘）
-it_vm_location='E:\\VirtualMachine\\Hyper-V\\'
+it_vm_location='D:\\VirtualMachine\\Hyper-V\\'
 # ISO 镜像所在目录
-it_iso_location='E:\\迅雷下载\\'
+it_iso_location='D:\\'
 # 模板所在目录
-it_template_location=''
+it_template_location='D:\\VirtualMachine\\Templates\\'
 # 虚拟机模板登录用户名
 it_template_login_user_name='Administrator'
 # 虚拟机模板登录密码
