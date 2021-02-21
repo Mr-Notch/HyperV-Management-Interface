@@ -205,9 +205,9 @@ def netsh_removeMirrorPort(listen_port):
 # -------------------
 
 def vm_exportVM(vm_name):
-    # export_loc 为 MainInterface 里的 it_template_location 加上 vm_name
+    # export_loc 为 MainInterface 里的 it_template_location
     try:
-        pipes = subprocess.Popen(['powershell.exe',MainInterface.it_hmi_location+'Interface\\Actuator\\vm\\vm_exportVM.ps1'+' '+vm_name+' '+MainInterface.it_template_location+vm_name],stdout=subprocess.PIPE)
+        pipes = subprocess.Popen(['powershell.exe',MainInterface.it_hmi_location+'Interface\\Actuator\\vm\\vm_exportVM.ps1'+' '+vm_name+' '+MainInterface.it_template_location],stdout=subprocess.PIPE)
         output = pipes.stdout.read().decode('GB2312')
         pipes_call = subprocess.call
         if pipes_call == 0:
@@ -218,10 +218,10 @@ def vm_exportVM(vm_name):
         return e
 
 def vm_importVM(template_name, vm_name):
-    # template_loc 为 MainInterface 里的 it_template_location 加上 template_name
+    # template_loc 为 MainInterface 里的 it_template_location
     # vm_loc 为 MainInterface 里的 it_vm_location
     try:
-        pipes = subprocess.Popen(['powershell.exe',MainInterface.it_hmi_location+'Interface\\Actuator\\vm\\vm_importVM.ps1'+' '+template_name+' '+MainInterface.it_template_location+template_name+' '+vm_name+' '+MainInterface.it_vm_location],stdout=subprocess.PIPE)
+        pipes = subprocess.Popen(['powershell.exe',MainInterface.it_hmi_location+'Interface\\Actuator\\vm\\vm_importVM.ps1'+' '+template_name+' '+MainInterface.it_template_location+' '+vm_name+' '+MainInterface.it_vm_location],stdout=subprocess.PIPE)
         output = pipes.stdout.read().decode('GB2312')
         pipes_call = subprocess.call
         if pipes_call == 0:
