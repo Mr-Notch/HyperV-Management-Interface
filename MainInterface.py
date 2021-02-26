@@ -10,7 +10,9 @@ it_interface='PowerShell'
 # 裸金属模式开关（开启后Hyper-V将独享宿主机配置，每台虚拟机将独立分配固定内存）
 it_bare_metal_mode=True
 # 虚拟交换机名称
-it_vm_switch_name='NAT'
+it_vm_switch_name='NATSwitch'
+# NAT网关名称
+it_nat_name='NATNetwork'
 # 新建虚拟机/导入虚拟机时默认开放的链接端口（Windows建议填3389；Linux SSH建议填22）
 it_vm_netsh_default_connect_port='3389'
 # 新建虚拟机/导入虚拟机时开放的额外端口数量（默认外网端口均为随机制，范围10000-20000）
@@ -30,7 +32,7 @@ it_template_login_user_name='Administrator'
 # 虚拟机模板登录密码
 it_template_login_user_password='Aa123456'
 # 虚拟机到期保留时间（单位：天）
-it_mature_keep_time='7'
+it_mature_keep_time=7
 # 虚拟机超过到期保留时间是否直接抹掉数据（默认：True）
 it_mature_delete_file=True
 # 上面的开关如果为False，则下面的需要填写
@@ -43,7 +45,7 @@ it_smtp_login_user='HydrogenCloud@163.com'
 # SMTP 登录密码
 it_smtp_login_password='LECOGDYYBJUJJBST'
 # SMTP 发送者名称
-it_smtp_sender_user='no-reply@hydrogencloud.com'
+it_smtp_sender_user='HydrogenCloud@163.com'
 # SMTP 邮件接收者（支持群发）
 it_smtp_receiver_user=["Mr_Notch@163.com","2222002611@qq.com","2628869101@qq.com"]
 
