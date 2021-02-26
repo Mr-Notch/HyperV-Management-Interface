@@ -142,7 +142,7 @@ def VMExportWheel(vm_name):
         print(stdout_2)
 
         # Get Now Time
-        maturity_start_date = str(get_now_time.getNowTime()).replace(' ','').replace('\n','').replace('\r','')
+        maturity_start_date = str(get_now_time.getNowTime())
 
         api_dict = {
             "function.type": "Export-VM",
@@ -257,7 +257,7 @@ def VMImportWheel(template_name,vm_name,vm_ram,vm_cpu,maturity_end_date):
         PowershellActuator.netsh_createMirrorPort(random_port,vm_address_ipv4,mirrored_port)
 
         # Get Now Time
-        maturity_start_date = str(get_now_time.getNowTime()).replace(' ','').replace('\n','').replace('\r','')
+        maturity_start_date = str(get_now_time.getNowTime())
         
         # Write Config Second
         config_writer.VMConfWriter(vm_name,vm_id,vm_cpu,vm_ram,vm_address_ipv4,vm_address_ipv6,mirrored_port,random_port,vm_disks_vhd_controller_type,vm_disks_vhd_controller_number,vm_disks_vhd_controller_location,'VHDX',vm_disks_vhd_path,maturity_start_date,maturity_end_date)
@@ -280,4 +280,7 @@ def VMImportWheel(template_name,vm_name,vm_ram,vm_cpu,maturity_end_date):
         return api_dict
     except Exception as e:
         return e
+
+
+
 
