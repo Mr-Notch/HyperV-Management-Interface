@@ -1,3 +1,3 @@
-import datetime
+from datetime import date, datetime, timedelta
 def getNowTime():
-    return datetime.date.today()
+    return date.today()
