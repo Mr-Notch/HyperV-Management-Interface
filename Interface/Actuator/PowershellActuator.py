@@ -200,6 +200,18 @@ def netsh_removeMirrorPort(listen_port):
     except BrokenPipeError as e:
         return e
 
+def network_vm_createMirrorPort(listen_port, connect_address, connect_port, protocol):
+    try:
+        pipes = subprocess.Popen(['powershell.exe',MainInterface.it_hmi_location+'Interface\\Actuator\\network\\network_vm_createMirrorPort.ps1'+' '+MainInterface.it_nat_name+' '+listen_port+' '+connect_address+' '+connect_port+' '+protocol],stdout=subprocess.PIPE)
+        output = pipes.stdout.read().decode('GB2312')
+        pipes_call = subprocess.call
+        if pipes_call == 0:
+            raise BrokenPipeError
+        else:
+            return output
+    except BrokenPipeError as e:
+        return e
+
 # -------------------
 # |  Actuator - vm  |
 # -------------------
