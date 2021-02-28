@@ -8,6 +8,8 @@ from MainInterface import it_template_login_user_name
 from MainInterface import it_template_login_user_password
 from MainInterface import it_vm_netsh_default_connect_port
 from MainInterface import it_bare_metal_mode
+from MainInterface import it_vm_netsh_extra_mirrored_port_started
+from MainInterface import it_vm_netsh_extra_connect_port_number
 from Interface import config_writer
 from Interface.Actuator import PowershellActuator
 from Interface.UT import get_now_time
@@ -106,6 +108,12 @@ def VMCreateWheel(vm_name,vm_ram,vm_cpu,vhd_size,iso_name):
             else:
                 print('IPv6 Address: '+vm_address_ipv6)
                 break
+
+        # Create NetSH Mirror Port 3389 to random
+        random_port = str(get_random_port.getRandomPort()).replace(' ','').replace('\n','')
+        mirrored_port = it_vm_netsh_default_connect_port
+        print('Create Port Mirrored: '+mirrored_port+'->'+random_port)
+        PowershellActuator.netsh_createMirrorPort(random_port,vm_address_ipv4,mirrored_port)
 
         # Get Now Time
         maturity_start_date = str(get_now_time.getNowTime()).replace(' ','').replace('\n','').replace('\r','')
@@ -255,6 +263,13 @@ def VMImportWheel(template_name,vm_name,vm_ram,vm_cpu,maturity_end_date):
         mirrored_port = it_vm_netsh_default_connect_port
         print('Create Port Mirrored: '+mirrored_port+'->'+random_port)
         PowershellActuator.netsh_createMirrorPort(random_port,vm_address_ipv4,mirrored_port)
+
+        # Create NetSH Mirror Port automatic
+        for i in range(it_vm_netsh_extra_mirrored_port_started, it_vm_netsh_extra_mirrored_port_started + it_vm_netsh_extra_connect_port_number):
+            random_port_extra = str(get_random_port.getRandomPort()).replace(' ','').replace('\n','')
+            print('Create Extra Port Mirrored: '+i+'->'+random_port)
+            PowershellActuator.netsh_createMirrorPort(random_port_extra,vm_address_ipv4,i)
+            
 
         # Get Now Time
         maturity_start_date = str(get_now_time.getNowTime())
