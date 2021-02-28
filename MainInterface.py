@@ -5,6 +5,7 @@ import sys
 '''
 此处配置方案请参考 HMI 的 GitHub
 '''
+
 # Interface 类型（默认：PowerShell）
 it_interface='PowerShell'
 # 裸金属模式开关（开启后Hyper-V将独享宿主机配置，每台虚拟机将独立分配固定内存）
