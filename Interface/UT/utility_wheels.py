@@ -10,19 +10,26 @@ from MainInterface import it_vm_netsh_default_connect_port
 from MainInterface import it_bare_metal_mode
 from MainInterface import it_vm_netsh_extra_mirrored_port_started
 from MainInterface import it_vm_netsh_extra_connect_port_number
+<<<<<<< HEAD
 from MainInterface import it_nat_segment
 from MainInterface import it_nat_dns
 from MainInterface import it_network_mode
 from Interface import config_reader, config_writer
+=======
+from Interface import config_writer
+>>>>>>> 8291ecbd3c59516c3ac439ec0cd2a1231e6695ae
 from Interface.Actuator import PowershellActuator
 from Interface.Actuator.network.bridge_mode import telnet_act
 from Interface.UT import get_now_time
 from Interface.UT import get_random_port
 from Interface.UT import get_ip_addr_v4
 
+<<<<<<< HEAD
 import os
 import ast
 
+=======
+>>>>>>> 8291ecbd3c59516c3ac439ec0cd2a1231e6695ae
 def VMCreateWheel(vm_name,vm_ram,vm_cpu,vhd_size,iso_name):
     try:
         # Create a VM
@@ -121,6 +128,7 @@ def VMCreateWheel(vm_name,vm_ram,vm_cpu,vhd_size,iso_name):
             else:
                 print('IPv6 Address: '+vm_address_ipv6)
                 break
+<<<<<<< HEAD
         
         # Check it_network_mode is NAT or Bridge
         if it_network_mode == 'NAT':
@@ -134,6 +142,14 @@ def VMCreateWheel(vm_name,vm_ram,vm_cpu,vhd_size,iso_name):
             mirrored_port = it_vm_netsh_default_connect_port
             # Create Bridge Mirror Port 3389 to random on telnet
             telnet_act.execute_func('nat port mapping add interface wan1 protocol TCP/UDP external-port '+random_port+' internal-ip '+vm_address_ipv4+' internal-port '+mirrored_port+' description '+vm_name+'-3389')
+=======
+
+        # Create NetSH Mirror Port 3389 to random
+        random_port = str(get_random_port.getRandomPort()).replace(' ','').replace('\n','')
+        mirrored_port = it_vm_netsh_default_connect_port
+        print('Create Port Mirrored: '+mirrored_port+'->'+random_port)
+        PowershellActuator.netsh_createMirrorPort(random_port,vm_address_ipv4,mirrored_port)
+>>>>>>> 8291ecbd3c59516c3ac439ec0cd2a1231e6695ae
 
         # Get Now Time
         maturity_start_date = str(get_now_time.getNowTime()).replace(' ','').replace('\n','').replace('\r','')
@@ -157,6 +173,7 @@ def VMExportWheel(vm_name):
         while True:
             switch = PowershellActuator.catch_vm_getPowerStatus(vm_name)
             if 'Running' in switch:
+<<<<<<< HEAD
                 # Stop VM
                 stdout_1 = PowershellActuator.vm_stop_conventional(vm_name)
                 print(stdout_1)
@@ -168,6 +185,15 @@ def VMExportWheel(vm_name):
                 continue
 
         
+=======
+                break
+            else:
+                continue
+
+        # Stop VM
+        stdout_1 = PowershellActuator.vm_stop_conventional(vm_name)
+        print(stdout_1)
+>>>>>>> 8291ecbd3c59516c3ac439ec0cd2a1231e6695ae
 
         # Export VM
         stdout_2 = PowershellActuator.vm_exportVM(vm_name)
@@ -263,8 +289,13 @@ def VMImportWheel(template_name,vm_name,vm_ram,vm_cpu,maturity_end_date):
 
         # Catch vm_address_ipv4
         while True:
+<<<<<<< HEAD
             vm_address_ipv4_internal = PowershellActuator.catch_vm_getAddress_ipv4(vm_name).replace(' ','').replace('\n','').replace('\r','')
             if 'null' in vm_address_ipv4_internal:
+=======
+            vm_address_ipv4 = PowershellActuator.catch_vm_getAddress_ipv4(vm_name).replace(' ','').replace('\n','').replace('\r','')
+            if 'null' in vm_address_ipv4:
+>>>>>>> 8291ecbd3c59516c3ac439ec0cd2a1231e6695ae
 
                 # print('未获取到ipv4地址')
                 continue
@@ -287,6 +318,7 @@ def VMImportWheel(template_name,vm_name,vm_ram,vm_cpu,maturity_end_date):
                 # print('成功获取ipv6地址')
                 break
         
+<<<<<<< HEAD
         # Check it_network_mode is NAT or Bridge
         if it_network_mode == 'NAT':
             # Create NetSH Mirror Port 3389 to random
@@ -300,6 +332,20 @@ def VMImportWheel(template_name,vm_name,vm_ram,vm_cpu,maturity_end_date):
             mirrored_port = it_vm_netsh_default_connect_port
             print('Create Port Mirrored: '+mirrored_port+'->'+random_port)
             telnet_act.execute_func('nat port mapping add interface wan1 protocol TCP/UDP external-port '+random_port+' internal-ip '+vm_address_ipv4+' internal-port '+mirrored_port+' description '+vm_name+'-3389')
+=======
+        # Create NetSH Mirror Port 3389 to random
+        random_port = str(get_random_port.getRandomPort()).replace(' ','').replace('\n','')
+        mirrored_port = it_vm_netsh_default_connect_port
+        print('Create Port Mirrored: '+mirrored_port+'->'+random_port)
+        PowershellActuator.netsh_createMirrorPort(random_port,vm_address_ipv4,mirrored_port)
+
+        # Create NetSH Mirror Port automatic
+        for i in range(it_vm_netsh_extra_mirrored_port_started, it_vm_netsh_extra_mirrored_port_started + it_vm_netsh_extra_connect_port_number):
+            random_port_extra = str(get_random_port.getRandomPort()).replace(' ','').replace('\n','')
+            print('Create Extra Port Mirrored: '+i+'->'+random_port)
+            PowershellActuator.netsh_createMirrorPort(random_port_extra,vm_address_ipv4,i)
+            
+>>>>>>> 8291ecbd3c59516c3ac439ec0cd2a1231e6695ae
 
         # Get Now Time
         maturity_start_date = str(get_now_time.getNowTime())
@@ -307,6 +353,7 @@ def VMImportWheel(template_name,vm_name,vm_ram,vm_cpu,maturity_end_date):
         # Write Config Second
         config_writer.VMConfWriter(vm_name,vm_id,vm_cpu,vm_ram,vm_address_ipv4,vm_address_ipv6,mirrored_port,random_port,vm_disks_vhd_controller_type,vm_disks_vhd_controller_number,vm_disks_vhd_controller_location,'VHDX',vm_disks_vhd_path,maturity_start_date,maturity_end_date)
         
+<<<<<<< HEAD
 
         # Check it_network_mode is NAT or Bridge
         if it_network_mode == 'NAT':
@@ -332,13 +379,19 @@ def VMImportWheel(template_name,vm_name,vm_ram,vm_cpu,maturity_end_date):
             
 
         
+=======
+>>>>>>> 8291ecbd3c59516c3ac439ec0cd2a1231e6695ae
         # Log-In VM and change Computer-Name to VM-ID
         vm_login_user = it_template_login_user_name
         vm_login_password = it_template_login_user_password
         PowershellActuator.vm_setComputerNameToVMID(vm_name,vm_login_user,vm_login_password)
 
         api_dict = {
+<<<<<<< HEAD
             "function.type": "Import-VM",
+=======
+            "function.type": "Create-VM",
+>>>>>>> 8291ecbd3c59516c3ac439ec0cd2a1231e6695ae
             "template.name": template_name,
             "vm.name": vm_name,
             "vm.address.ipv4": vm_address_ipv4,
@@ -353,6 +406,7 @@ def VMImportWheel(template_name,vm_name,vm_ram,vm_cpu,maturity_end_date):
 
 
 
+<<<<<<< HEAD
 def VMDeleteWheel(vm_name):
     try:
         stdout_0=PowershellActuator.vm_stop_force(vm_name)
@@ -393,3 +447,6 @@ def VMRebuildWheel(vm_name,template_name):
             return switch_0
     except Exception as e:
         return e
+=======
+
+>>>>>>> 8291ecbd3c59516c3ac439ec0cd2a1231e6695ae

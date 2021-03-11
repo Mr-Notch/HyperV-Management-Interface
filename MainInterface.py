@@ -10,6 +10,13 @@ import sys
 it_interface='PowerShell'
 # 裸金属模式开关（开启后Hyper-V将独享宿主机配置，每台虚拟机将独立分配固定内存）
 it_bare_metal_mode=True
+<<<<<<< HEAD
+=======
+# 虚拟交换机名称
+it_vm_switch_name='NATSwitch'
+# NAT网关名称
+it_nat_name='NATNetwork'
+>>>>>>> 8291ecbd3c59516c3ac439ec0cd2a1231e6695ae
 # 新建虚拟机/导入虚拟机时默认开放的链接端口（Windows建议填3389；Linux SSH建议填22）
 it_vm_netsh_default_connect_port='3389'
 # 新建虚拟机/导入虚拟机时开放的额外端口数量（默认外网端口均为随机制，范围10000-20000）
@@ -17,6 +24,7 @@ it_vm_netsh_extra_connect_port_number='4'
 # 新建虚拟机/导入虚拟机时开放的额外端口内网端口起始值（默认为10000开始，往后依次加1）
 it_vm_netsh_extra_mirrored_port_started='10000'
 # HMI 运行目录（填写 MainInterface.py 所在的目录即可）
+<<<<<<< HEAD
 it_hmi_location='D:\\Services\\HyperV-Management-Interface\\'
 # Hyper-V 虚拟机运行目录（最好单独用一块磁盘）
 it_vm_location='D:\\HMI-Files\\Resources\\'
@@ -24,6 +32,15 @@ it_vm_location='D:\\HMI-Files\\Resources\\'
 it_iso_location='D:\\HMI-Files\\ISO\\'
 # 模板所在目录
 it_template_location='D:\\HMI-Files\\Templates\\'
+=======
+it_hmi_location='C:\\Users\\HGR\\Documents\\GitHub\\HyperV-Management-Interface\\'
+# Hyper-V 虚拟机运行目录（最好单独用一块磁盘）
+it_vm_location='D:\\VirtualMachine\\Hyper-V\\'
+# ISO 镜像所在目录
+it_iso_location='D:\\'
+# 模板所在目录
+it_template_location='D:\\VirtualMachine\\Templates\\'
+>>>>>>> 8291ecbd3c59516c3ac439ec0cd2a1231e6695ae
 # 虚拟机模板登录用户名
 it_template_login_user_name='Administrator'
 # 虚拟机模板登录密码

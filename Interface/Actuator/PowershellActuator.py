@@ -228,6 +228,7 @@ def network_vm_createMirrorPort(listen_port, connect_address, connect_port, prot
     except BrokenPipeError as e:
         return e
 
+<<<<<<< HEAD
 def network_vm_setIPAddress_ipv4(vm_name,ipaddr_v4,ipaddr_gateway,ipaddr_dns):
     try:
         pipes = subprocess.Popen(['powershell.exe',MainInterface.it_hmi_location+'Interface\\Actuator\\network\\network_vm_setIPAddress_ipv4.ps1'+' '+vm_name+' '+ipaddr_v4+' '+ipaddr_gateway+' '+ipaddr_dns],stdout=subprocess.PIPE)
@@ -240,6 +241,8 @@ def network_vm_setIPAddress_ipv4(vm_name,ipaddr_v4,ipaddr_gateway,ipaddr_dns):
     except BrokenPipeError as e:
         return e
 
+=======
+>>>>>>> 8291ecbd3c59516c3ac439ec0cd2a1231e6695ae
 # -------------------
 # |  Actuator - vm  |
 # -------------------

@@ -1,7 +1,10 @@
 import json
 from datetime import date, timedelta
 from Interface.Actuator import PowershellActuator
+<<<<<<< HEAD
 from Interface.UT import utility_wheels
+=======
+>>>>>>> 8291ecbd3c59516c3ac439ec0cd2a1231e6695ae
 from Interface.UT import send_mail
 from MainInterface import it_hmi_location
 from MainInterface import it_mature_keep_time
@@ -38,9 +41,13 @@ def checkMaturityTime(vm_name):
             # already expired & out of keep time
             msg_2 = '----------------------------------'+'\n'+'虚拟机名称: '+vm_name+'\n'+'----------------------------------'+'\n'+'虚拟机已经到期且已经抹除数据, 系统已经回收资源'
             send_mail.sendMail('已抹掉虚拟机数据',msg_2)
+<<<<<<< HEAD
             PowershellActuator.vm_stop_force(vm_name)
             utility_wheels.VMDeleteWheel(vm_name)
             
+=======
+            PowershellActuator.vm_removeVM(vm_name)
+>>>>>>> 8291ecbd3c59516c3ac439ec0cd2a1231e6695ae
             return 2
         else:
             # print('已过期未超过7天')
