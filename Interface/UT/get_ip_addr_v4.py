@@ -3,12 +3,12 @@ from MainInterface import it_hmi_location
 import random
 import os
 
-def getRandomPort():
+def getIpAddr_v4():
     
-    random_value = random.randint(10000,20000)
+    random_value = random.randint(100,200)
     checker=[]
     checker.append(str(random_value))
-    path=it_hmi_location+"Config\\cache\\random_dice_var_statistics.txt"
+    path=it_hmi_location+"Config\\cache\\random_ipaddr_statistics.txt"
     if not os.path.isfile(path):
         fd = open(path, mode="w", encoding="utf-8")
         fd.close()
@@ -25,19 +25,15 @@ def getRandomPort():
         with open(path,mode="r") as this:
             new_checker = this.readlines()
             if str(random_value) in str(new_checker):
-                random_value_2 = random.randint(10000, 20000)
+                random_value_2 = random.randint(100, 200)
                 new_checker.append(str(random_value_2))
-
                 return random_value_2
-                
             else:
                 new_checker.append(str(random_value))
 
-                
             with open(path,mode="w") as fuck:
                 for lines in new_checker:
                     fuck.write(lines+' ')
                 fuck.close()
         this.close()
         return random_value
-    

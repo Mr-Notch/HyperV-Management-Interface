@@ -13,7 +13,7 @@ def MainInjector():
         # from Interface.hmi_server import HyperV_Management_Interface_Server
         # print(constants.requirements_installer())
         # print(PowershellActuator.catch_vm_getVMID('python_createvm_func_1'))
-        guiwriter.welcome_gui()
+        # guiwriter.welcome_gui()
         
         guiwriter.main_gui()
         

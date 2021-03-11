@@ -5,7 +5,6 @@ import os
 from terminal_layout.extensions.choice import *
 from terminal_layout import *
 from Interface.UT import utility_wheels
-from Interface.UT import get_random_port
 
 def welcome_gui():
     curses.initscr()
@@ -57,7 +56,7 @@ def main_gui():
         if value == 'Virtual Machine Options':
             os.system('cls')
             c_0 = Choice('Virtual Machine Options:',
-                    ['Import a Virtual Machine', 'Create a Virtual Machine', 'Export a Virtual Machine','Delete a Virtual Machine','VM Setting Options','NetSH Setting Options'],
+                    ['Import a Virtual Machine', 'Create a Virtual Machine', 'Export a Virtual Machine','Delete a Virtual Machine','Rebuild a Virtual Machine','NetSH Setting Options'],
                     icon_style=StringStyle(fore=Fore.green),
                     selected_style=StringStyle(fore=Fore.green))
             choice_0 = c_0.get_choice()
@@ -65,28 +64,50 @@ def main_gui():
                 index_0, value_0 = choice_0
                 if value_0 == 'Import a Virtual Machine':
                     os.system('cls')
+                    template_name=input('Input Template Name: ')
+                    vm_name=input('Input VM Name: ')
+                    vm_ram=input('Input VM Ram Size: ')+'GB'
+                    vm_cpu=input('Input VM CPU Num: ')
+                    maturity_end_date=input('Input Maturity End Date (eg: 2021-02-01): ')
+
+                    print(utility_wheels.VMImportWheel(template_name,vm_name,vm_ram,vm_cpu,maturity_end_date))
                 elif value_0 == 'Create a Virtual Machine':
                     os.system('cls')
-                    # vm_name=input('Input VM Name: ')
-                    # vm_ram=input('Input VM Ram Size: ')+'GB'
-                    # vm_cpu=input('Input VM CPU Num: ')
-                    # vhd_size=input('Input VHD Size: ')+'GB'
-                    # iso_name=input('Input ISO Name: ')
-                    # vm_login_user=input('Input VM Login User Name (eg: Administrator): ')
-                    # vm_login_password=input('Input VM Login User Password (eg: Aa123456): ')
-                    # maturity_end_date=input('Input Maturity End Date (eg: 2021-02-01): ')
-                    vm_name='test_import_vm'
-                    vm_ram='2'
-                    vm_cpu='2'
-                    vhd_size='30'
-                    iso_name=''
-                    vm_login_user='Administrator'
-                    vm_login_password='Aa123456'
-                    maturity_end_date='2021-03-31'
+                    vm_name=input('Input VM Name: ')
+                    vm_ram=input('Input VM Ram Size: ')+'GB'
+                    vm_cpu=input('Input VM CPU Num: ')
+                    vhd_size=input('Input VHD Size: ')+'GB'
+                    iso_name=input('Input ISO Name: ')
 
-                    print(utility_wheels.VMCreateWheel(vm_name,vm_ram,vm_cpu,vhd_size,iso_name,vm_login_user,vm_login_password,maturity_end_date))
+                    # vm_name='test_import_vm'
+                    # vm_ram='2'
+                    # vm_cpu='2'
+                    # vhd_size='30'
+                    # iso_name=''
+                    # vm_login_user='Administrator'
+                    # vm_login_password='Aa123456'
+                    # maturity_end_date='2021-03-31'
+
+                    print(utility_wheels.VMCreateWheel(vm_name,vm_ram,vm_cpu,vhd_size,iso_name))
                     
+                elif value_0 == 'Export a Virtual Machine':
+                    os.system('cls')
+                    vm_name=input('Input VM Name: ')
 
+                    print(utility_wheels.VMExportWheel(vm_name))
+
+                elif value_0 == 'Delete a Virtual Machine':
+                    os.system('cls')
+                    vm_name=input('Input VM Name: ')
+                    print(utility_wheels.VMDeleteWheel(vm_name))
+                    
+                elif value_0 == 'Rebuild a Virtual Machine':
+                    os.system('cls')
+                    print('*** WARNING: ALL DATA WILL BE DELETED ***')
+                    print('')
+                    vm_name=input('Input VM Name: ')
+                    template_name=input('Input Template Name: ')
+                    print(utility_wheels.VMRebuildWheel(vm_name,template_name))
 
 
         elif value == 'HMI Logger':

@@ -173,6 +173,22 @@ def disk_unloadVHD(vm_name, vhd_controller_type, vhd_controller_num, vhd_control
         return e
 
 # ----------------------
+# |   Actuator - kms   |
+# ----------------------
+
+def kms_slmgr(vm_name,vm_login_user,vm_login_password):
+    try:
+        pipes = subprocess.Popen(['powershell.exe',MainInterface.it_hmi_location+'Interface\\Actuator\\kms\\kms_slmgr.ps1'+' '+vm_name+' '+vm_login_user+' '+vm_login_password],stdout=subprocess.PIPE)
+        output = pipes.stdout.read().decode('GB2312')
+        pipes_call = subprocess.call
+        if pipes_call == 0:
+            raise BrokenPipeError
+        else:
+            return output
+    except BrokenPipeError as e:
+        return e
+        
+# ----------------------
 # |  Actuator - netsh  |
 # ----------------------
 
@@ -200,14 +216,38 @@ def netsh_removeMirrorPort(listen_port):
     except BrokenPipeError as e:
         return e
 
+def network_vm_createMirrorPort(listen_port, connect_address, connect_port, protocol):
+    try:
+        pipes = subprocess.Popen(['powershell.exe',MainInterface.it_hmi_location+'Interface\\Actuator\\network\\network_vm_createMirrorPort.ps1'+' '+MainInterface.it_nat_name+' '+listen_port+' '+connect_address+' '+connect_port+' '+protocol],stdout=subprocess.PIPE)
+        output = pipes.stdout.read().decode('GB2312')
+        pipes_call = subprocess.call
+        if pipes_call == 0:
+            raise BrokenPipeError
+        else:
+            return output
+    except BrokenPipeError as e:
+        return e
+
+def network_vm_setIPAddress_ipv4(vm_name,ipaddr_v4,ipaddr_gateway,ipaddr_dns):
+    try:
+        pipes = subprocess.Popen(['powershell.exe',MainInterface.it_hmi_location+'Interface\\Actuator\\network\\network_vm_setIPAddress_ipv4.ps1'+' '+vm_name+' '+ipaddr_v4+' '+ipaddr_gateway+' '+ipaddr_dns],stdout=subprocess.PIPE)
+        output = pipes.stdout.read().decode('GB2312')
+        pipes_call = subprocess.call
+        if pipes_call == 0:
+            raise BrokenPipeError
+        else:
+            return output
+    except BrokenPipeError as e:
+        return e
+
 # -------------------
 # |  Actuator - vm  |
 # -------------------
 
 def vm_exportVM(vm_name):
-    # export_loc 为 MainInterface 里的 it_template_location 加上 vm_name
+    # export_loc 为 MainInterface 里的 it_template_location
     try:
-        pipes = subprocess.Popen(['powershell.exe',MainInterface.it_hmi_location+'Interface\\Actuator\\vm\\vm_exportVM.ps1'+' '+vm_name+' '+MainInterface.it_template_location+vm_name],stdout=subprocess.PIPE)
+        pipes = subprocess.Popen(['powershell.exe',MainInterface.it_hmi_location+'Interface\\Actuator\\vm\\vm_exportVM.ps1'+' '+vm_name+' '+MainInterface.it_template_location],stdout=subprocess.PIPE)
         output = pipes.stdout.read().decode('GB2312')
         pipes_call = subprocess.call
         if pipes_call == 0:
@@ -218,10 +258,10 @@ def vm_exportVM(vm_name):
         return e
 
 def vm_importVM(template_name, vm_name):
-    # template_loc 为 MainInterface 里的 it_template_location 加上 template_name
+    # template_loc 为 MainInterface 里的 it_template_location
     # vm_loc 为 MainInterface 里的 it_vm_location
     try:
-        pipes = subprocess.Popen(['powershell.exe',MainInterface.it_hmi_location+'Interface\\Actuator\\vm\\vm_importVM.ps1'+' '+template_name+' '+MainInterface.it_template_location+template_name+' '+vm_name+' '+MainInterface.it_vm_location],stdout=subprocess.PIPE)
+        pipes = subprocess.Popen(['powershell.exe',MainInterface.it_hmi_location+'Interface\\Actuator\\vm\\vm_importVM.ps1'+' '+template_name+' '+MainInterface.it_template_location+' '+vm_name+' '+MainInterface.it_vm_location],stdout=subprocess.PIPE)
         output = pipes.stdout.read().decode('GB2312')
         pipes_call = subprocess.call
         if pipes_call == 0:
